@@ -317,6 +317,271 @@ border-radius: 45.5px; */
   top: 150px;
 }
 
+.center.folderPowerOn {
+  width: 608px;
+  height: 618px;
+  left: 293px;
+  /* top: 260px; */
+  animation: center-folder-power-on 1s;
+}
+
+.center.folderPowerOff {
+  animation: center-folder-power-off 1s;
+}
+
+.ram-w-i.folderPowerOff {
+  animation: ram-w-i-folder-power-off 1s;
+}
+
+.ram-w-i-c.folderPowerOff {
+  animation: ram-w-i-c-folder-power-off 1s;
+}
+
+.ram-b-i.folderPowerOff {
+  animation: ram-b-i-folder-power-off 1s;
+}
+
+.ram-b-i-c.folderPowerOff {
+  animation: ram-b-i-c-folder-power-off 1s;
+}
+
+@keyframes center-folder-power-off {
+  0% {
+    width: 608px;
+    height: 618px;
+    left: 293px;
+  }
+  50% {
+    left: 515px;
+  }
+  100% {
+    width: 1005px;
+    height: 750px;
+    top: 150px;
+  }
+}
+
+@keyframes center-folder-power-on {
+  0% {
+    width: 1005px;
+    height: 750px;
+    top: 150px;
+    left: 515px;
+  }
+  50% {
+    left: 293px;
+  }
+  100% {
+    width: 608px;
+    height: 618px;
+  }
+}
+
+@keyframes center-bacg-folder-power-off {
+  0% {
+    width: 608px;
+    height: 618px;
+    background: #681723;
+    filter: blur(40px);
+    border-radius: 166px;
+  }
+  100% {
+    width: 1005px;
+    height: 700px;
+    background: #681723;
+    filter: blur(40px);
+    border-radius: 166px;
+  }
+}
+
+@keyframes center-bacg-folder-power-on {
+  0% {
+    width: 1005px;
+    height: 700px;
+    background: #681723;
+    filter: blur(40px);
+    border-radius: 166px;
+  }
+  100% {
+    width: 608px;
+    height: 618px;
+    background: #681723;
+    filter: blur(40px);
+    border-radius: 166px;
+  }
+}
+
+@keyframes ram-w-i-folder-power-off {
+  0% {
+    width: 426.51px;
+    height: 46.97px;
+  }
+  100% {
+    width: 705px;
+    height: 57px;
+  }
+}
+
+@keyframes ram-w-i-c-folder-power-off {
+  0% {
+    width: 426.51px;
+    height: 87.34px;
+  }
+  100% {
+    width: 705px;
+    height: 106px;
+  }
+}
+
+@keyframes ram-b-i-folder-power-off {
+  0% {
+    width: 426.51px;
+    height: 44.45px;
+  }
+  100% {
+    width: 705px;
+    height: 57px;
+  }
+}
+
+@keyframes ram-b-i-c-folder-power-off {
+  0% {
+    width: 426.51px;
+    height: 82.66px;
+  }
+  100% {
+    width: 705px;
+    height: 106px;
+  }
+}
+
+@keyframes ram-w-i-folder-power-on {
+  0% {
+    width: 705px;
+    height: 57px;
+  }
+  100% {
+    width: 426.51px;
+    height: 46.97px;
+  }
+}
+
+@keyframes ram-w-i-c-folder-power-on {
+  0% {
+    width: 705px;
+    height: 106px;
+  }
+  100% {
+    width: 426.51px;
+    height: 87.34px;
+  }
+}
+
+@keyframes ram-b-i-folder-power-on {
+  0% {
+    width: 705px;
+    height: 57px;
+  }
+  100% {
+    width: 426.51px;
+    height: 44.45px;
+  }
+}
+
+@keyframes ram-b-i-c-folder-power-on {
+  0% {
+    width: 705px;
+    height: 106px;
+  }
+  100% {
+    width: 426.51px;
+    height: 82.66px;
+  }
+}
+
+.center-bacg.folderPowerOff {
+  animation: center-bacg-folder-power-off 1s;
+}
+
+.center-bacg.folderPowerOn {
+  position: absolute;
+  width: 608px;
+  height: 618px;
+  /* left: 293px;
+  top: 260px; */
+
+  background: #681723;
+  filter: blur(40px);
+  border-radius: 166px;
+  animation: center-bacg-folder-power-on 1s;
+}
+
+.ram-w.folderPowerOn {
+  position: absolute;
+  width: 426.51px;
+  height: 87.34px;
+  /* left: 392.82px;
+  top: 348.99px; */
+}
+
+.ram-w-i.folderPowerOn {
+  position: absolute;
+  width: 426.51px;
+  height: 46.97px;
+  /* left: 392.82px;
+  top: 389.37px; */
+
+  animation: ram-w-i-folder-power-on 1s;
+
+  background: #200606;
+}
+
+.ram-w-i-c.folderPowerOn {
+  position: absolute;
+  width: 426.51px;
+  height: 87.34px;
+  /* left: 392.82px;
+  top: 348.99px; */
+
+  animation: ram-w-i-c-folder-power-on 1s;
+
+  background: #200606;
+  border-radius: 53px;
+}
+
+.ram-b.folderPowerOn {
+  position: absolute;
+  width: 426.51px;
+  height: 87.34px;
+  /* left: 392.82px;
+  top: 746.16px; */
+}
+
+.ram-b-i.folderPowerOn {
+  position: absolute;
+  width: 426.51px;
+  height: 44.45px;
+  /* left: 392.82px;
+  top: 746.16px; */
+
+  animation: ram-b-i-folder-power-on 1s;
+
+  background: #200606;
+}
+
+.ram-b-i-c.folderPowerOn {
+  position: absolute;
+  width: 426.51px;
+  height: 82.66px;
+  /* left: 392.82px;
+  top: 750.84px; */
+
+  animation: ram-b-i-c-folder-power-on 1s;
+
+  background: #200606;
+  border-radius: 53px;
+}
+
 .center-bacg {
   position: absolute;
   width: 1005px;
@@ -392,6 +657,39 @@ border-radius: 45.5px; */
   height: 710px;
   left: 1130px;
   top: 205px;
+}
+
+.folder.on {
+  animation: folder-on 1s;
+}
+
+.folder.off {
+  animation: folder-off 1s;
+  display: none;
+}
+
+@keyframes folder-off {
+  0% {
+    top: 205px;
+    display: inline;
+    opacity: 1;
+  }
+  100% {
+    top: -570px;
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes folder-on {
+  0% {
+    top: -570px;
+    opacity: 0;
+  }
+  100% {
+    top: 205px;
+    opacity: 1;
+  }
 }
 
 .folder-header {

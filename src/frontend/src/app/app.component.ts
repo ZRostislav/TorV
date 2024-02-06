@@ -45,6 +45,29 @@ export class AppComponent {
 
   str4() {
     this.str4Triger = this.toggleClass('str-4', this.str4Triger);
+    const folder = document.getElementById('folder');
+    if (folder) {
+      folder.classList.toggle('on'); // Переключает класс 'on'
+      folder.classList.toggle('off'); // Переключает класс 'off'
+    }
+    const elements = [
+      'center',
+      'ramW',
+      'ramWI',
+      'ramWIC',
+      'ramB',
+      'ramBI',
+      'ramBIC',
+      'centerBacg',
+    ];
+
+    elements.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.classList.toggle('folderPowerOn');
+        element.classList.toggle('folderPowerOff');
+      }
+    });
   }
 
   str5() {
