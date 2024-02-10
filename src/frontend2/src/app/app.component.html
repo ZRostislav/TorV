@@ -7,7 +7,7 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<!-- <header class="header">
+<header class="header">
   <div class="blocks">
     <div class="blocks-bacg"></div>
     <img class="blocks-img" src="../assets/img/iTunes.png" />
@@ -133,6 +133,7 @@
           alt=""
         />
       </div>
+      <audio-player class="player"></audio-player>
       <div id="centerBacg" class="center-bacg folderPowerOff"></div>
     </div>
 
@@ -144,17 +145,14 @@
       </div>
 
       <div class="folder-list">
-        <ul class="folder-list-t">
+        <ul *ngFor="let audioFile of audioFiles" class="folder-list-t">
           <img class="folder-list-icon" src="../assets/img/Music.png" alt="" />
-          <li class="folder-list-name">1Название - Исполнитель</li>
-        </ul>
-        <ul class="folder-list-t">
-          <img class="folder-list-icon" src="../assets/img/Music.png" alt="" />
-          <li class="folder-list-name">2Название - Исполнитель</li>
-        </ul>
-        <ul class="folder-list-t">
-          <img class="folder-list-icon" src="../assets/img/Music.png" alt="" />
-          <li class="folder-list-name">3Название - Исполнитель</li>
+          <li
+            class="folder-list-name"
+            (click)="audioPlayer.onSongSelected(audioFile.url)"
+          >
+            {{ getAudioTitleById(audioFile.id) }}
+          </li>
         </ul>
       </div>
     </div>
@@ -171,9 +169,7 @@
       Ваш браузер не поддерживает воспроизведение аудио!!!
     </audio>
   </div>
-</main> -->
-
-<audio-player></audio-player>
+</main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
@@ -182,5 +178,3 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<router-outlet />

@@ -1,19 +1,38 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, OnInit, EventEmitter, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AudioService } from './audio-list/audio.service';
 import { AudioPlayer } from './audio-player/audio-player.component';
+import { AudioFile } from './audio-list/audio-file.interface';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'TorV';
+  @ViewChild(AudioPlayer) audioPlayer!: AudioPlayer;
+
+  openSong(url: string) {
+    this.audioPlayer.onSongSelected(url);
+  }
 
   constructor(private audioService: AudioService) {}
+  audioFiles: AudioFile[] = [];
+
+  ngOnInit() {
+    this.fetchAudioFiles();
+  }
+
+  fetchAudioFiles() {
+    this.audioService.getAudioFiles().subscribe((files: AudioFile[]) => {
+      this.audioFiles = files;
+    });
+  }
+
+  getAudioTitleById(id: number): string {
+    return this.audioService.getAudioTitleById(id);
+  }
 
   getAudioUrlById(id: number): string {
     return this.audioService.getAudioUrlById(id);
