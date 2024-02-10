@@ -142,6 +142,7 @@
         <img class="folder-icon" src="../assets/img/Opened Folder.png" alt="" />
         <p class="folder-name">Название Папки</p>
       </div>
+
       <div class="folder-list">
         <ul class="folder-list-t">
           <img class="folder-list-icon" src="../assets/img/Music.png" alt="" />
@@ -157,6 +158,18 @@
         </ul>
       </div>
     </div>
+  </div>
+  <div class="music">
+    <audio id="audioElement" src="../assets/sound/music.mp3" loop></audio>
+    <canvas id="visualizer"></canvas>
+    <button id="playBtn">Play</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="stopBtn">Stop</button>
+
+    <audio controls>
+      <source [src]="getAudioUrlById(1)" type="audio/mpeg" />
+      Ваш браузер не поддерживает воспроизведение аудио!!!
+    </audio>
   </div>
 </main>
 
