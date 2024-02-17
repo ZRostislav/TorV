@@ -1,0 +1,809 @@
+.main {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; /* 100% ширины экрана */
+  height: 100%; /* 100% высоты экрана */
+  background: url(../assets/img/сам_фон.jpg) center center no-repeat;
+  background-size: cover;
+  z-index: 0;
+}
+
+.main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    79.44% 79.44% at 50% 46.11%,
+    rgba(32, 6, 6, 0) 0%,
+    #200606 100%
+  );
+  z-index: 1; /* Установите значение z-index, чтобы обеспечить, что этот слой находится поверх основного фона */
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+}
+
+h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.header {
+  position: absolute;
+  width: 1940px;
+  height: 279px;
+  left: -20px;
+  top: -58px;
+
+  z-index: 4;
+}
+
+.shil {
+  position: absolute;
+  width: 1920px;
+  height: 210.23px;
+  left: calc(50% - 1920px / 2);
+  /* top: calc(50% - 210.23px / 2 - 492.88px); */
+  /* top: -14%; */
+
+  background: #681723;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 26px;
+}
+
+.blocks {
+  position: absolute;
+  width: 300px;
+  height: 249px;
+  left: 12px;
+  top: 19px;
+  background: #681723;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 51px;
+  z-index: 5;
+  justify-content: center;
+  display: flex;
+}
+
+.blocks-img {
+  position: absolute;
+  /* left: 42px; */
+  width: 79%;
+  top: 40px;
+  left: 40px;
+}
+
+.blocks-bacg {
+  position: absolute;
+  /* width: 79%; */
+  top: 40px;
+  left: 40px;
+  background: radial-gradient(
+    190.89% 190.89% at 49.72% 50%,
+    #ec0606 0%,
+    rgba(235, 0, 0, 0) 100%
+  );
+  filter: blur(50px);
+  border-radius: 107px;
+
+  width: 217px;
+  height: 191px;
+
+  background: radial-gradient(
+      190.89% 190.89% at 49.72% 50%,
+      #ec0606 0%,
+      rgba(235, 0, 0, 0) 100%
+    )
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  filter: blur(50px);
+  border-radius: 107px;
+}
+
+.icon-bacg {
+  background: linear-gradient(
+    90deg,
+    rgba(12, 8, 209, 0.3) 2.66%,
+    rgba(236, 6, 6, 0.3) 97.52%
+  );
+  /* filter: blur(20px); */
+  /* justify-content: center; */
+  /* display: flex; */
+  justify-content: center;
+  display: flex;
+}
+
+/* Rectangle 2 */
+
+/* position: absolute;
+    width: 202px;
+    height: 104px;
+    left: 936px;
+    top: 38px;
+    
+    filter: blur(20px);
+    border-radius: 45.5px; */
+
+/* Rectangle 1
+    
+    position: absolute;
+    width: 165px;
+    height: 91px;
+    left: 955px;
+    top: 35px;
+    
+    background: linear-gradient(90deg, #0C08D1 2.66%, #EC0606 97.52%);
+    filter: blur(20px);
+    border-radius: 45.5px; */
+
+.icon-bacg2 {
+  background: linear-gradient(90deg, #0c08d1 2.66%, #ec0606 97.52%);
+  /* filter: blur(20px); */
+  justify-content: center;
+  display: flex;
+}
+
+.icon1,
+.icon2,
+.icon3,
+.icon4,
+.icon5,
+.icon6 {
+  position: relative;
+  width: 202px;
+  height: 104px;
+  top: 80px;
+  justify-content: center;
+  display: flex;
+  padding: 0px 50px;
+  display: inline-block;
+  left: 346px;
+}
+
+.icon1 img,
+.icon2 img,
+.icon3 img,
+.icon4 img,
+.icon5 img,
+.icon6 img {
+  display: block;
+  margin: 0 auto;
+  z-index: 4;
+}
+
+/* .icon1 {
+      left: 346px;
+    }
+    .icon2 {
+      left: 692px;
+    }
+    .icon3 {
+      left: 1384px;
+    }
+    .icon4 {
+      left: 2768px;
+    }
+    .icon5 {
+      left: 5536px;
+    }
+    .icon6 {
+      left: 1931px;
+    } */
+
+.icon-bacg,
+.icon-bacg2 {
+  /* position: absolute; */
+  width: 202px;
+  height: 104px;
+  /* top: 35px; */
+  border-radius: 45.5px;
+  filter: blur(20px);
+}
+
+.icon-bacg {
+  left: 921px;
+}
+.icon-bacg2 {
+  left: 1123px;
+}
+
+.icon-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  transition: 1s;
+}
+
+.icon-icon:hover {
+  filter: brightness(120%);
+  width: 100px;
+  height: 100px;
+}
+
+.str {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 208px;
+  left: 450px;
+}
+
+.str-strelka {
+  position: relative;
+  width: 5%;
+  /* height: 89.56px; */
+  border-radius: 11px;
+  padding: 0px 205px 0px 0px;
+  z-index: -1;
+}
+
+.str-strelka.on {
+  animation: str-strelka-on 1s;
+}
+
+@keyframes str-strelka-on {
+  0% {
+    top: -60px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+.str-strelka.off {
+  animation: str-strelka-off 1s;
+}
+
+@keyframes str-strelka-off {
+  0% {
+    top: 0px;
+    opacity: 1;
+  }
+  100% {
+    top: -60px;
+    opacity: 0;
+  }
+}
+
+.strelka {
+  position: absolute;
+  width: 318px;
+  height: 93px;
+  left: -135px;
+  top: 300px;
+
+  background: #681723;
+  border-radius: 27px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.strelka-icon-group {
+  position: absolute;
+  width: 167px;
+  height: 111.73px;
+  left: 120px;
+  top: -7px;
+}
+
+.strelka-icon-1 {
+  position: absolute;
+  width: 113.01px;
+  height: 111.73px;
+  left: 86.99px;
+}
+
+.strelka-icon-2 {
+  position: absolute;
+  width: 113.01px;
+  height: 111.73px;
+  left: 33px;
+}
+
+.center {
+  position: absolute;
+  width: 1005px;
+  height: 750px;
+  left: 515px;
+  top: 150px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.center.folderPowerOn {
+  width: 608px;
+  height: 618px;
+  left: 293px;
+  /* top: 260px; */
+  animation: center-folder-power-on 1s;
+}
+
+.center.folderPowerOff {
+  animation: center-folder-power-off 1s;
+}
+
+.ram-w-i.folderPowerOff {
+  animation: ram-w-i-folder-power-off 1s;
+}
+
+.ram-w-i-c.folderPowerOff {
+  animation: ram-w-i-c-folder-power-off 1s;
+}
+
+.ram-b-i.folderPowerOff {
+  animation: ram-b-i-folder-power-off 1s;
+}
+
+.ram-b-i-c.folderPowerOff {
+  animation: ram-b-i-c-folder-power-off 1s;
+}
+
+@keyframes center-folder-power-off {
+  0% {
+    width: 608px;
+    height: 618px;
+    left: 293px;
+  }
+  50% {
+    left: 515px;
+  }
+  100% {
+    width: 1005px;
+    height: 750px;
+    top: 150px;
+  }
+}
+
+@keyframes center-folder-power-on {
+  0% {
+    width: 1005px;
+    height: 750px;
+    top: 150px;
+    left: 515px;
+  }
+  50% {
+    left: 293px;
+  }
+  100% {
+    width: 608px;
+    height: 618px;
+  }
+}
+
+@keyframes center-bacg-folder-power-off {
+  0% {
+    width: 608px;
+    height: 618px;
+    background: #681723;
+    filter: blur(40px);
+    border-radius: 166px;
+  }
+  100% {
+    width: 1005px;
+    height: 700px;
+    background: #681723;
+    filter: blur(40px);
+    border-radius: 166px;
+  }
+}
+
+@keyframes center-bacg-folder-power-on {
+  0% {
+    width: 1005px;
+    height: 700px;
+    background: #681723;
+    filter: blur(40px);
+    border-radius: 166px;
+  }
+  100% {
+    width: 608px;
+    height: 618px;
+    background: #681723;
+    filter: blur(40px);
+    border-radius: 166px;
+  }
+}
+
+@keyframes ram-w-i-folder-power-off {
+  0% {
+    width: 426.51px;
+    height: 46.97px;
+  }
+  100% {
+    width: 705px;
+    height: 57px;
+  }
+}
+
+@keyframes ram-w-i-c-folder-power-off {
+  0% {
+    width: 426.51px;
+    height: 87.34px;
+  }
+  100% {
+    width: 705px;
+    height: 106px;
+  }
+}
+
+@keyframes ram-b-i-folder-power-off {
+  0% {
+    width: 426.51px;
+    height: 44.45px;
+  }
+  100% {
+    width: 705px;
+    height: 57px;
+  }
+}
+
+@keyframes ram-b-i-c-folder-power-off {
+  0% {
+    width: 426.51px;
+    height: 82.66px;
+  }
+  100% {
+    width: 705px;
+    height: 106px;
+  }
+}
+
+@keyframes ram-w-i-folder-power-on {
+  0% {
+    width: 705px;
+    height: 57px;
+  }
+  100% {
+    width: 426.51px;
+    height: 46.97px;
+  }
+}
+
+@keyframes ram-w-i-c-folder-power-on {
+  0% {
+    width: 705px;
+    height: 106px;
+  }
+  100% {
+    width: 426.51px;
+    height: 87.34px;
+  }
+}
+
+@keyframes ram-b-i-folder-power-on {
+  0% {
+    width: 705px;
+    height: 57px;
+  }
+  100% {
+    width: 426.51px;
+    height: 44.45px;
+  }
+}
+
+@keyframes ram-b-i-c-folder-power-on {
+  0% {
+    width: 705px;
+    height: 106px;
+  }
+  100% {
+    width: 426.51px;
+    height: 82.66px;
+  }
+}
+
+.center-bacg.folderPowerOff {
+  animation: center-bacg-folder-power-off 1s;
+}
+
+.center-bacg.folderPowerOn {
+  position: absolute;
+  width: 608px;
+  height: 618px;
+  /* left: 293px;
+      top: 260px; */
+
+  background: #681723;
+  filter: blur(40px);
+  border-radius: 166px;
+  animation: center-bacg-folder-power-on 1s;
+}
+
+.ram-w.folderPowerOn {
+  position: absolute;
+  width: 426.51px;
+  height: 87.34px;
+  /* left: 392.82px;
+      top: 348.99px; */
+}
+
+.ram-w-i.folderPowerOn {
+  position: absolute;
+  width: 426.51px;
+  height: 46.97px;
+  /* left: 392.82px;
+      top: 389.37px; */
+
+  animation: ram-w-i-folder-power-on 1s;
+
+  background: #200606;
+}
+
+.ram-w-i-c.folderPowerOn {
+  position: absolute;
+  width: 426.51px;
+  height: 87.34px;
+  /* left: 392.82px;
+      top: 348.99px; */
+
+  animation: ram-w-i-c-folder-power-on 1s;
+
+  background: #200606;
+  border-radius: 53px;
+}
+
+.ram-b.folderPowerOn {
+  position: absolute;
+  width: 426.51px;
+  height: 87.34px;
+  /* left: 392.82px;
+      top: 746.16px; */
+}
+
+.ram-b-i.folderPowerOn {
+  position: absolute;
+  width: 426.51px;
+  height: 44.45px;
+  /* left: 392.82px;
+      top: 746.16px; */
+
+  animation: ram-b-i-folder-power-on 1s;
+
+  background: #200606;
+}
+
+.ram-b-i-c.folderPowerOn {
+  position: absolute;
+  width: 426.51px;
+  height: 82.66px;
+  /* left: 392.82px;
+      top: 750.84px; */
+
+  animation: ram-b-i-c-folder-power-on 1s;
+
+  background: #200606;
+  border-radius: 53px;
+}
+
+.center-bacg {
+  position: absolute;
+  width: 1005px;
+  height: 700px;
+  /* left: 515px;
+      top: 170px; */
+  background: #681723;
+  filter: blur(40px);
+  border-radius: 166px;
+}
+
+.ram-w {
+  z-index: 4;
+  position: absolute;
+  width: 705px;
+  height: 106px;
+  left: 15%;
+  top: 15%;
+}
+
+.ram-w-i {
+  position: absolute;
+  width: 705px;
+  height: 57px;
+  top: 50px;
+  background: #200606;
+}
+
+.ram-w-i-c {
+  position: absolute;
+  width: 705px;
+  height: 106px;
+  /* left: 680px;
+      top: 325px; */
+
+  background: #200606;
+  border-radius: 53px;
+}
+
+.ram-b {
+  z-index: 4;
+  position: absolute;
+  width: 705px;
+  height: 106px;
+  left: 15%;
+  top: 70%;
+}
+
+.ram-b-i {
+  position: absolute;
+  width: 705px;
+  height: 53.95px;
+  /* left: 680px;
+      top: 807px; */
+
+  background: #200606;
+}
+
+.ram-b-i-c {
+  position: absolute;
+  width: 705px;
+  height: 100.32px;
+  /* left: 680px;
+      top: 812.68px; */
+
+  background: #200606;
+  border-radius: 53px;
+}
+
+.folder {
+  position: absolute;
+  width: 538px;
+  height: 710px;
+  left: 1130px;
+  top: 205px;
+}
+
+.folder.on {
+  animation: folder-on 1s;
+}
+
+.folder.off {
+  animation: folder-off 1s;
+  display: none;
+}
+
+@keyframes folder-off {
+  0% {
+    top: 205px;
+    display: inline;
+    opacity: 1;
+  }
+  100% {
+    top: -570px;
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes folder-on {
+  0% {
+    top: -570px;
+    opacity: 0;
+  }
+  100% {
+    top: 205px;
+    opacity: 1;
+  }
+}
+
+.folder-header {
+  z-index: 3;
+  justify-content: center;
+  display: flex;
+  top: 30px;
+  position: relative;
+}
+
+.folder-list {
+  z-index: 3;
+  top: 50px;
+  left: 20px;
+  position: relative;
+}
+
+.folder-bacg {
+  position: absolute;
+  width: 538px;
+  height: 710px;
+
+  background: #681723;
+  filter: blur(10px);
+  border-radius: 49px;
+}
+
+.folder-list-name {
+  position: absolute;
+  width: 239px;
+  height: 22px;
+
+  font-family: "Literata";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  /* hanging-punctuation is currently only supported in Safari. */
+  hanging-punctuation: first last;
+  text-indent: 40px;
+  text-transform: capitalize;
+
+  color: #200606;
+}
+
+.folder-icon {
+  position: absolute;
+  width: 75px;
+  /* border-radius: 22px; */
+  left: 40px;
+}
+
+.folder-name {
+  position: relative;
+  width: 427px;
+  height: 67px;
+
+  font-family: "Literata";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 45px;
+  line-height: 67px;
+  /* identical to box height */
+  /* hanging-punctuation is currently only supported in Safari. */
+  left: 20px;
+  top: 10px;
+  hanging-punctuation: first last;
+  text-indent: 40px;
+  text-transform: capitalize;
+
+  color: #200606;
+}
+
+.folder-list-icon {
+  position: absolute;
+  width: 26px;
+  height: 27px;
+
+  /* background: url(.png), url(.png), url(.png), url(.png); */
+}
+
+.folder-list-t {
+  position: relative;
+  padding: 14px 60px;
+}
+
+.on {
+  display: inline;
+}
+
+.off {
+  opacity: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.player {
+  color: white;
+  z-index: 1;
+}
+
+.musicPlayer {
+  z-index: 10;
+  position: relative;
+}
+
+footer {
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

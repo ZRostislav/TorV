@@ -1,0 +1,7 @@
+<div class="audio-list">
+  <ol>
+    <li *ngFor="let item of songs" (click)="openSong(item)">
+      {{ item.name }}
+    </li>
+  </ol>
+</div>
