@@ -1,6 +1,6 @@
 import { useState } from "react";
 import iTunes from "./assets/img/iTunes.png";
-import Basket from "./assets/img/Basket.png";
+import Paint_Brush from "./assets/img/Paint_Brush.png";
 import Time_Machine from "./assets/img/Time_Machine.png";
 import Love from "./assets/img/Love.png";
 import Opened_Folder from "./assets/img/Opened_Folder.png";
@@ -148,7 +148,7 @@ function Header() {
             <img
               onClick={() => handleClick("str1")}
               className="icon-icon"
-              src={Basket}
+              src={Paint_Brush}
               alt="Basket Icon"
             />
             <div className="icon-bacg">

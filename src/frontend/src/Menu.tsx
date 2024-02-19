@@ -23,24 +23,33 @@ import { playList } from "./playList.ts";
 function Menu() {
   const [count, setCount] = useState(0);
 
-  const [progressType, setProgressType] = useState<ProgressUI>("bar");
+  const [progressType, setProgressType] = useState<ProgressUI>(false);
   const [playerPlacement, setPlayerPlacement] =
-    useState<PlayerPlacement>("bottom-left");
+    useState<PlayerPlacement>("static");
   const [interfacePlacement, setInterfacePlacement] =
-    useState<InterfaceGridTemplateArea>();
+    useState<InterfaceGridTemplateArea>({
+      // playList: "row2-1",
+      // // progress: "row1-2",
+      // playButton: "row2-2",
+      // // volume: "row2-3",
+    });
   const [playListPlacement, setPlayListPlacement] =
     useState<PlayListPlacement>("bottom");
   const [volumeSliderPlacement, setVolumeSliderPlacement] =
     useState<VolumeSliderPlacement>();
   const [theme, setTheme] = useState<"dark" | "light" | undefined>();
   const [width, setWidth] = useState("100%");
-  const [activeUI, setActiveUI] = useState<ActiveUI>({ all: true });
+  const [activeUI, setActiveUI] = useState<ActiveUI>({
+    playButton: true,
+    prevNnext: true,
+    progress: false,
+  });
   return (
     <main className="main">
       <div className="content">
         <div id="center" className="center folderPowerOff">
           <div>
-            <div className="player-container01">
+            <div className="player-container-menu">
               <AudioPlayer
                 playList={playList}
                 activeUI={{
@@ -61,17 +70,6 @@ function Menu() {
                 }}
               />
             </div>
-
-            <Editor
-              setPlayerPlacement={setPlayerPlacement}
-              setProgressType={setProgressType}
-              setInterfacePlacement={setInterfacePlacement}
-              setPlayListPlacement={setPlayListPlacement}
-              setVolumeSliderPlacement={setVolumeSliderPlacement}
-              setTheme={setTheme}
-              setActiveUI={setActiveUI}
-              setWidth={setWidth}
-            />
           </div>
           <div id="ramW" className="ram-w folderPowerOff">
             <img

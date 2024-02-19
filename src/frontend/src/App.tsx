@@ -21,7 +21,7 @@ import { playList } from "./playList.ts";
 function Player() {
   const [count, setCount] = useState(0);
 
-  const [progressType, setProgressType] = useState<ProgressUI>("bar");
+  const [progressType, setProgressType] = useState<ProgressUI>(false);
   const [playerPlacement, setPlayerPlacement] =
     useState<PlayerPlacement>("bottom-left");
   const [interfacePlacement, setInterfacePlacement] =
@@ -32,7 +32,7 @@ function Player() {
     useState<VolumeSliderPlacement>();
   const [theme, setTheme] = useState<"dark" | "light" | undefined>();
   const [width, setWidth] = useState("100%");
-  const [activeUI, setActiveUI] = useState<ActiveUI>({ all: true });
+  const [activeUI, setActiveUI] = useState<ActiveUI>({ all: false });
 
   return (
     <>
@@ -79,7 +79,7 @@ function App() {
     <>
       <Header />
       <Menu />
-      <Player />
+      {/* <Player /> */}
     </>
   );
 }
