@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "Editor.tsx", "playerMode.ts"],
+  "include": ["src", "src/Editor.tsx", "src/playerMode.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

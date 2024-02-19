@@ -1,7 +1,5 @@
+import { playList } from "./playList.ts";
 import { useState } from "react";
-import "./assets/styles/App.css";
-import "./assets/styles/styleAll.css";
-import "./assets/styles/stylesPlayer.css";
 
 import AudioPlayer, {
   ActiveUI,
@@ -13,12 +11,7 @@ import AudioPlayer, {
 } from "react-modern-audio-player";
 import Editor from "./Editor.tsx";
 
-import Header from "./Header.tsx";
-import Menu from "./Menu.tsx";
-import { playList } from "./playList.ts";
-// import Testing from "./STesting.jsx";
-
-function Player() {
+function PLAYER() {
   const [count, setCount] = useState(0);
 
   const [progressType, setProgressType] = useState<ProgressUI>("bar");
@@ -73,15 +66,3 @@ function Player() {
     </>
   );
 }
-
-function App() {
-  return (
-    <>
-      <Header />
-      <Menu />
-      <Player />
-    </>
-  );
-}
-
-export default App;

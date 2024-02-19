@@ -5,7 +5,7 @@
   transform: translate(-50%, -50%);
   width: 100%; /* 100% ширины экрана */
   height: 100%; /* 100% высоты экрана */
-  background: url(./assets/img/сам_фон.jpg) center center no-repeat;
+  background: url(../../assets/img/сам_фон.jpg) center center no-repeat;
   background-size: cover;
   z-index: 0;
 }
