@@ -1,13 +1,27 @@
-import React from "react";
-import { useState } from "react";
+// import React from "react";
+// import { useState, useEffect } from "react";
 
 import Rectangle_5 from "./assets/img/Rectangle_5.png";
 import Rectangle_6 from "./assets/img/Rectangle_6.png";
 import Rectangle_7 from "./assets/img/Rectangle_7.png";
 import Rectangle_8 from "./assets/img/Rectangle_8.png";
 import Opened_Folder from "./assets/img/Opened Folder.png";
+import Paint_Brush_Black from "./assets/img/Paint_Brush_Black.png";
+import Downloads_Folder_Black from "./assets/img/Downloads_Folder_Black.png";
+import Love_black from "./assets/img/Love_black.png";
+import Time_Machine_black from "./assets/img/Time_Machine_black.png";
 import Music from "./assets/img/Music.png";
 
+import Play from "./assets/img/testing/play.png";
+import Stop from "./assets/img/testing/stop.png";
+import p from "./assets/img/testing/p.png";
+import w from "./assets/img/testing/w.png";
+
+import Save from "./assets/img/testing/save.png";
+import Lovers from "./assets/img/testing/lovers.png";
+import Download from "./assets/img/testing/download.png";
+
+import React, { useState, useEffect } from "react";
 import AudioPlayer, {
   ActiveUI,
   InterfaceGridTemplateArea,
@@ -17,13 +31,11 @@ import AudioPlayer, {
   VolumeSliderPlacement,
 } from "react-modern-audio-player";
 import Editor from "./Editor.tsx";
-
 import { playList } from "./playList.ts";
 
 function Menu() {
   const [count, setCount] = useState(0);
-
-  const [progressType, setProgressType] = useState<ProgressUI>(false);
+  const [progressType, setProgressType] = useState<ProgressUI>("bar");
   const [playerPlacement, setPlayerPlacement] =
     useState<PlayerPlacement>("static");
   const [interfacePlacement, setInterfacePlacement] =
@@ -42,8 +54,82 @@ function Menu() {
   const [activeUI, setActiveUI] = useState<ActiveUI>({
     playButton: true,
     prevNnext: true,
+    artwork: true,
     progress: false,
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const playButton = document.getElementById("play-button");
+    const ramWAudioPlay = document.getElementById("ramWAudioPlay");
+
+    if (playButton && ramWAudioPlay) {
+      playButton.addEventListener("click", () => {
+        ramWAudioPlay.src = "./assets/img/testing/stop.png"; // Укажите путь к вашему изображению стопа
+      });
+    }
+  });
+
+  useEffect(() => {
+    const prevNextButtons = document.querySelectorAll(".prev-n-next-button");
+    const prevPlay = document.querySelector(".play-button") as HTMLElement;
+
+    const ramWAudioP = document.getElementById("ramWAudioP") as HTMLElement;
+    const ramWAudioW = document.getElementById("ramWAudioW") as HTMLElement;
+    const ramWAudioPlay = document.getElementById(
+      "ramWAudioPlay"
+    ) as HTMLElement;
+
+    const handleMouseOverW = () => {
+      ramWAudioW.classList.add("hovered");
+      ramWAudioP.classList.add("hovered");
+    };
+
+    const handleMouseOutW = () => {
+      ramWAudioW.classList.remove("hovered");
+      ramWAudioP.classList.remove("hovered");
+    };
+
+    const handleMouseOverPlay = () => {
+      ramWAudioPlay.classList.add("hovered");
+    };
+
+    const handleMouseOutPlay = () => {
+      ramWAudioPlay.classList.remove("hovered");
+    };
+
+    prevNextButtons.forEach((button) => {
+      button.addEventListener("mouseover", handleMouseOverW);
+      button.addEventListener("mouseout", handleMouseOutW);
+    });
+
+    prevPlay.addEventListener("mouseover", handleMouseOverPlay);
+    prevPlay.addEventListener("mouseout", handleMouseOutPlay);
+
+    const handlePlayButtonClick = () => {
+      const ramWAudioPlay = document.getElementById(
+        "ramWAudioPlay"
+      ) as HTMLImageElement;
+      if (ramWAudioPlay) {
+        if (ramWAudioPlay.src.includes(Play)) {
+          ramWAudioPlay.src = Stop;
+        } else {
+          ramWAudioPlay.src = Play;
+        }
+      }
+    };
+
+    const playButton = document.querySelector(".play-button");
+    if (playButton) {
+      playButton.addEventListener("click", handlePlayButtonClick);
+    }
+
+    return () => {
+      if (playButton) {
+        playButton.removeEventListener("click", handlePlayButtonClick);
+      }
+    };
+  }, []);
+
   return (
     <main className="main">
       <div className="content">
@@ -72,6 +158,26 @@ function Menu() {
             </div>
           </div>
           <div id="ramW" className="ram-w folderPowerOff">
+            <div id="AudioPlayersW" className="ram-w-audio-players">
+              <img
+                id="ramWAudioW"
+                className="ram-w-audio-players-icons"
+                src={w}
+                alt=""
+              />
+              <img
+                id="ramWAudioPlay"
+                className="ram-w-audio-players-icons"
+                src={Play}
+                alt=""
+              />
+              <img
+                id="ramWAudioP"
+                className="ram-w-audio-players-icons"
+                src={p}
+                alt=""
+              />
+            </div>
             <img
               id="ramWI"
               className="ram-w-i folderPowerOff"
@@ -86,6 +192,26 @@ function Menu() {
             />
           </div>
           <div id="ramB" className="ram-b folderPowerOff">
+            <div id="AudioPlayersB" className="ram-b-audio-players">
+              <img
+                id="ramBAudioSave"
+                className="ram-b-audio-players-icons"
+                src={Save}
+                alt=""
+              />
+              <img
+                id="ramBAudioLovers"
+                className="ram-b-audio-players-icons"
+                src={Lovers}
+                alt=""
+              />
+              <img
+                id="ramBAudioDownload"
+                className="ram-b-audio-players-icons"
+                src={Download}
+                alt=""
+              />
+            </div>
             <img
               id="ramBI"
               className="ram-b-i folderPowerOff"
@@ -103,7 +229,7 @@ function Menu() {
           <div id="centerBacg" className="center-bacg folderPowerOff"></div>
         </div>
 
-        <div id="folder" className="folder off">
+        <div id="WindowFolder" className="folder folderOff">
           <div className="folder-bacg"></div>
           <div className="folder-header">
             <img className="folder-icon" src={Opened_Folder} alt="" />
@@ -115,6 +241,38 @@ function Menu() {
               <img className="folder-list-icon" src={Music} alt="" />
               <li className="folder-list-name">1</li>
             </ul>
+          </div>
+        </div>
+
+        <div id="WindowDownloads" className="folder folderOff">
+          <div className="folder-bacg"></div>
+          <div className="folder-header">
+            <img className="folder-icon" src={Downloads_Folder_Black} alt="" />
+            <p className="folder-name">Загрузки</p>
+          </div>
+        </div>
+
+        <div id="WindowLiked" className="folder folderOff">
+          <div className="folder-bacg"></div>
+          <div className="folder-header">
+            <img className="folder-icon" src={Love_black} alt="" />
+            <p className="folder-name">Понравившиеся</p>
+          </div>
+        </div>
+
+        <div id="WindowHistory" className="folder folderOff">
+          <div className="folder-bacg"></div>
+          <div className="folder-header">
+            <img className="folder-icon" src={Time_Machine_black} alt="" />
+            <p className="folder-name">История</p>
+          </div>
+        </div>
+
+        <div id="WindowThemes" className="folder folderOff">
+          <div className="folder-bacg"></div>
+          <div className="folder-header">
+            <img className="folder-icon" src={Paint_Brush_Black} alt="" />
+            <p className="folder-name">Тема</p>
           </div>
         </div>
       </div>

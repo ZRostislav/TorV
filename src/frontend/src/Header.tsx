@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import iTunes from "./assets/img/iTunes.png";
 import Paint_Brush from "./assets/img/Paint_Brush.png";
 import Time_Machine from "./assets/img/Time_Machine.png";
@@ -6,116 +6,102 @@ import Love from "./assets/img/Love.png";
 import Opened_Folder from "./assets/img/Opened_Folder.png";
 import Downloads_Folder from "./assets/img/Downloads_Folder.png";
 import Double_Right from "./assets/img/Double_Right.png";
-import Polygon_1 from "./assets/img/Polygon 1.png";
 
-interface StrTriggers {
-  str1: boolean;
-  str2: boolean;
-  str3: boolean;
-  str4: boolean;
-  str5: boolean;
-}
+import Artwork from "./Artwork";
+
+import AudioPlayer, {
+  ActiveUI,
+  InterfaceGridTemplateArea,
+  PlayerPlacement,
+  PlayListPlacement,
+  ProgressUI,
+  VolumeSliderPlacement,
+} from "react-modern-audio-player";
+import Editor from "./Editor.tsx";
 
 function Header() {
-  const [strTriggers, setStrTriggers] = useState<StrTriggers>({
-    str1: false,
-    str2: false,
-    str3: false,
-    str4: false,
-    str5: false,
-  });
+  const [activeStr, setActiveStr] = useState(null);
+  const [strelkaClicked, setStrelkaClicked] = useState(false);
+  const [folderPowerOn, setFolderPowerOn] = useState(false);
 
-  const toggleClass = (id: string): void => {
-    const element = document.getElementById(id);
-    if (element) {
-      if (element.classList.contains("on")) {
-        element.classList.remove("on");
-        element.classList.add("off");
-      } else {
-        element.classList.remove("off");
-        element.classList.add("on");
+  const handleStrelkaClick = () => {
+    const selectionMenuId = document.getElementById("selectionMenuId");
+    const strelkaElement = document.getElementById("strelkaId");
+    const isMenuOn = strelkaElement?.classList.contains("MenuOn");
+
+    const elements = [
+      "center",
+      "ramW",
+      "ramWI",
+      "ramWIC",
+      "ramB",
+      "ramBI",
+      "ramBIC",
+      "centerBacg",
+    ];
+
+    elements.forEach((id) => {
+      const element = document.getElementById(id);
+      const rawWAudioPlayers = document.getElementById("AudioPlayersW");
+      const rawBAudioPlayers = document.getElementById("AudioPlayersB");
+      const btnWrapper = document.querySelector(".btn-wrapper") as HTMLElement;
+
+      if (element) {
+        element.classList.remove("folderPowerOn");
+        element.classList.add("folderPowerOff");
       }
+
+      if (rawWAudioPlayers) {
+        rawWAudioPlayers.classList.remove("OnW");
+      }
+
+      if (rawBAudioPlayers) {
+        rawBAudioPlayers.classList.remove("OnW");
+      }
+
+      if (btnWrapper) {
+        btnWrapper.classList.remove("OnW");
+      }
+    });
+
+    // setStrelkaClicked((prevStrelkaClicked) => !prevStrelkaClicked);
+    WindowFolder(false);
+    WindowDownloads(false);
+    WindowLiked(false);
+    WindowHistory(false);
+    WindowThemes(false);
+
+    if (isMenuOn) {
+      strelkaElement?.classList.remove("MenuOn");
+      selectionMenuId?.classList.remove("MenuOn");
+    } else {
+      OnMenuSelection(true);
     }
   };
 
-  const handleClick = (str: keyof StrTriggers): void => {
-    // Проверяем, был ли выбран str4 и folder находится в состоянии "on"
-    const isStr4AndFolderOn =
-      str === "str4" &&
-      document.getElementById("folder")?.classList.contains("on");
-
-    // Если текущий str уже активирован, выключаем его
-    if (strTriggers[str]) {
-      setStrTriggers((prevTriggers: StrTriggers) => ({
-        ...prevTriggers,
-        [str]: false,
-      }));
-      toggleClass(`str${str}`);
-      return;
-    }
-
-    // Убираем folder и устанавливаем все состояния str в false
-    const folder = document.getElementById("folder");
-    if (folder) {
-      folder.classList.remove("on");
-      folder.classList.add("off");
-
-      const elementsMenu = [
-        "center",
-        "ramW",
-        "ramWI",
-        "ramWIC",
-        "ramB",
-        "ramBI",
-        "ramBIC",
-        "centerBacg",
-      ];
-      elementsMenu.forEach((id) => {
-        const elementMenu = document.getElementById(id);
-        elementMenu.classList.remove("folderPowerOn");
-        elementMenu.classList.add("folderPowerOff");
-      });
-    }
-    setStrTriggers({
-      str1: false,
-      str2: false,
-      str3: false,
-      str4: false,
-      str5: false,
+  const handleClick = (str: any) => {
+    setActiveStr((prevStr) => {
+      if (prevStr === str) {
+        // Если снова нажата та же самая иконка, деактивируем её
+        WindowFolder(false);
+        WindowDownloads(false);
+        WindowLiked(false);
+        WindowHistory(false);
+        WindowThemes(false);
+        return null;
+      } else {
+        // Активируем нажатую иконку и вызываем функцию WindowFolder
+        WindowFolder(str === "str4");
+        WindowDownloads(str === "str5");
+        WindowLiked(str === "str3");
+        WindowHistory(str === "str2");
+        WindowThemes(str === "str1");
+        return str;
+      }
     });
-
-    // Если выбран str4 и folder находится в состоянии "on", переключаем его состояние
-    if (isStr4AndFolderOn) {
-      toggleClass("str4");
-    }
-
-    // Устанавливаем состояние текущего str в true и переключаем его класс
-    setStrTriggers((prevTriggers: StrTriggers) => ({
-      ...prevTriggers,
-      [str]: true,
-    }));
-    toggleClass(`str${str}`);
   };
 
-  const handleStr4Click = (): void => {
-    const currentStr4State = strTriggers.str4; // Получаем текущее состояние str4
-
-    // Инвертируем состояние str4 и устанавливаем остальные str в false
-    setStrTriggers({
-      str1: false,
-      str2: false,
-      str3: false,
-      str4: !currentStr4State, // Инвертируем состояние str4
-      str5: false,
-    });
-
-    const folder = document.getElementById("folder");
-    if (folder) {
-      // Инвертируем классы для элемента folder
-      folder.classList.toggle("on");
-      folder.classList.toggle("off");
-    }
-
+  useEffect(() => {
     const elements = [
       "center",
       "ramW",
@@ -128,19 +114,117 @@ function Header() {
     ];
     elements.forEach((id) => {
       const element = document.getElementById(id);
+      const rawWAudioPlayers = document.getElementById("AudioPlayersW");
+      const rawBAudioPlayers = document.getElementById("AudioPlayersB");
+      const btnWrapper = document.querySelector(".btn-wrapper") as HTMLElement;
       if (element) {
-        // Инвертируем классы для каждого элемента
-        element.classList.toggle("folderPowerOn");
-        element.classList.toggle("folderPowerOff");
+        if (activeStr) {
+          element.classList.add("folderPowerOn");
+          element.classList.remove("folderPowerOff");
+          rawWAudioPlayers?.classList.add("OnW");
+          rawBAudioPlayers?.classList.add("OnW");
+          btnWrapper?.classList.add("OnW");
+        } else {
+          element.classList.remove("folderPowerOn");
+          element.classList.add("folderPowerOff");
+          rawWAudioPlayers?.classList.remove("OnW");
+          rawBAudioPlayers?.classList.remove("OnW");
+          btnWrapper?.classList.remove("OnW");
+        }
       }
     });
-  };
+  }, [activeStr]);
+
+  useEffect(() => {
+    const strelkaElement = document.getElementById("strelkaId");
+    if (strelkaElement) {
+      if (strelkaClicked) {
+        strelkaElement.classList.add("MenuOn");
+      } else {
+        strelkaElement.classList.remove("MenuOn");
+      }
+    }
+  }, [strelkaClicked]);
+
+  function WindowFolder(activate: any) {
+    const WindowFolder = document.getElementById("WindowFolder");
+    if (activate) {
+      CloseMenuSelection(true);
+      WindowFolder?.classList.add("folderOn");
+      WindowFolder?.classList.remove("folderOff");
+    } else {
+      WindowFolder?.classList.remove("folderOn");
+      WindowFolder?.classList.add("folderOff");
+    }
+  }
+
+  function WindowDownloads(activate: any) {
+    const WindowDownloads = document.getElementById("WindowDownloads");
+    if (activate) {
+      CloseMenuSelection(true);
+      WindowDownloads?.classList.add("folderOn");
+      WindowDownloads?.classList.remove("folderOff");
+    } else {
+      WindowDownloads?.classList.remove("folderOn");
+      WindowDownloads?.classList.add("folderOff");
+    }
+  }
+
+  function WindowLiked(activate: any) {
+    const WindowLiked = document.getElementById("WindowLiked");
+    if (activate) {
+      CloseMenuSelection(true);
+      WindowLiked?.classList.add("folderOn");
+      WindowLiked?.classList.remove("folderOff");
+    } else {
+      WindowLiked?.classList.remove("folderOn");
+      WindowLiked?.classList.add("folderOff");
+    }
+  }
+
+  function WindowHistory(activate: any) {
+    const WindowHistory = document.getElementById("WindowHistory");
+    if (activate) {
+      CloseMenuSelection(true);
+      WindowHistory?.classList.add("folderOn");
+      WindowHistory?.classList.remove("folderOff");
+    } else {
+      WindowHistory?.classList.remove("folderOn");
+      WindowHistory?.classList.add("folderOff");
+    }
+  }
+
+  function WindowThemes(activate: any) {
+    const WindowThemes = document.getElementById("WindowThemes");
+    if (activate) {
+      CloseMenuSelection(true);
+      WindowThemes?.classList.add("folderOn");
+      WindowThemes?.classList.remove("folderOff");
+    } else {
+      WindowThemes?.classList.remove("folderOn");
+      WindowThemes?.classList.add("folderOff");
+    }
+  }
+
+  function CloseMenuSelection(activate: any) {
+    const selectionMenuId = document.getElementById("selectionMenuId");
+    const strelkaElement = document.getElementById("strelkaId");
+    selectionMenuId?.classList.remove("MenuOn");
+    strelkaElement?.classList.remove("MenuOn");
+  }
+
+  function OnMenuSelection(activate: any) {
+    const selectionMenuId = document.getElementById("selectionMenuId");
+    const strelkaElement = document.getElementById("strelkaId");
+    selectionMenuId?.classList.add("MenuOn");
+    strelkaElement?.classList.add("MenuOn");
+  }
 
   return (
     <header className="header">
       <div className="blocks">
-        <div className="blocks-bacg"></div>
-        <img className="blocks-img" src={iTunes} alt="iTunes Icon" />
+        {/* <div className="blocks-bacg"></div> */}
+        <Artwork />
       </div>
       <div className="shil">
         <div className="icon">
@@ -182,7 +266,7 @@ function Header() {
 
           <div className="icon4">
             <img
-              onClick={handleStr4Click}
+              onClick={() => handleClick("str4")}
               className="icon-icon"
               src={Opened_Folder}
               alt="Opened Folder Icon"
@@ -204,33 +288,26 @@ function Header() {
             </div>
           </div>
         </div>
-        <div className="str">
-          {[1, 2, 3, 4, 5].map((num) => (
-            <img
-              key={`str${num}`}
-              id={`str${num}`}
-              className={`str-strelka ${
-                strTriggers[`str${num}`] ? "on" : "off"
-              }`}
-              src={Polygon_1}
-              alt={`Polygon ${num}`}
-            />
-          ))}
-        </div>
       </div>
 
-      <div className="strelka">
-        <div className="strelka-icon-group">
-          <img
-            className="strelka-icon-1"
-            src={Double_Right}
-            alt="Double Right Icon 1"
-          />
-          <img
-            className="strelka-icon-2"
-            src={Double_Right}
-            alt="Double Right Icon 2"
-          />
+      <div className="musiсSelectionMenu">
+        <div
+          id="selectionMenuId"
+          className={`selectionMenu${strelkaClicked ? " MenuOn" : ""}`}
+        ></div>
+        <div id="strelkaId" className="strelka" onClick={handleStrelkaClick}>
+          <div className="strelka-icon-group">
+            <img
+              className="strelka-icon-1"
+              src={Double_Right}
+              alt="Double Right Icon 1"
+            />
+            <img
+              className="strelka-icon-2"
+              src={Double_Right}
+              alt="Double Right Icon 2"
+            />
+          </div>
         </div>
       </div>
     </header>

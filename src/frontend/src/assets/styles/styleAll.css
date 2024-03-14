@@ -71,6 +71,19 @@ h1 {
   z-index: 5;
   justify-content: center;
   display: flex;
+  align-items: center;
+  background-size: cover;
+}
+
+.blocks::before {
+  background: radial-gradient(
+    190.89% 190.89% at 49.72% 50%,
+    #ec0606 0%,
+    rgba(235, 0, 0, 0) 100%
+  );
+  filter: blur(50px);
+  border-radius: 107px;
+  z-index: 200;
 }
 
 .blocks-img {
@@ -230,7 +243,7 @@ h1 {
   height: 100px;
 }
 
-.str {
+/* .str {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -241,7 +254,6 @@ h1 {
 .str-strelka {
   position: relative;
   width: 5%;
-  /* height: 89.56px; */
   border-radius: 11px;
   padding: 0px 205px 0px 0px;
   z-index: -1;
@@ -274,13 +286,14 @@ h1 {
     opacity: 0;
   }
 }
-
+*/
 .strelka {
   position: absolute;
   width: 318px;
   height: 93px;
   left: -135px;
   top: 300px;
+  transition: 1s;
 
   background: #681723;
   border-radius: 27px;
@@ -293,6 +306,29 @@ h1 {
   height: 111.73px;
   left: 120px;
   top: -7px;
+  transition: 1s;
+}
+
+.strelka-icon-group:hover .strelka-icon-1 {
+  left: 80px;
+  /* animation: opasiti 2s; */
+}
+
+.strelka-icon-group:hover .strelka-icon-2 {
+  left: 25px;
+  /* animation: opasiti 2s; */
+}
+
+@keyframes opasiti {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
 }
 
 .strelka-icon-1 {
@@ -300,6 +336,7 @@ h1 {
   width: 113.01px;
   height: 111.73px;
   left: 86.99px;
+  transition: 1s;
 }
 
 .strelka-icon-2 {
@@ -307,6 +344,7 @@ h1 {
   width: 113.01px;
   height: 111.73px;
   left: 33px;
+  transition: 1s;
 }
 
 .center {
@@ -454,7 +492,7 @@ h1 {
   }
   100% {
     width: 705px;
-    height: 106px;
+    height: 100.32px;
   }
 }
 
@@ -494,7 +532,7 @@ h1 {
 @keyframes ram-b-i-c-folder-power-on {
   0% {
     width: 705px;
-    height: 106px;
+    height: 100.32px;
   }
   100% {
     width: 426.51px;
@@ -605,6 +643,94 @@ h1 {
   top: 15%;
 }
 
+.ram-w-audio-players {
+  position: absolute;
+  width: 705px;
+  height: 106px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  transition: 1s;
+}
+
+.ram-w-audio-players.OnW {
+  width: 425px;
+  transition: 1s;
+}
+
+.ram-w-audio-players-icons {
+  /* background-color: #0c08d1; */
+  width: 90px;
+  height: 90px;
+  position: relative;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  transition: 1s;
+  padding: 10px;
+}
+
+.ram-b-audio-players {
+  position: absolute;
+  width: 705px;
+  height: 90px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  transition: 1s;
+}
+
+.ram-b-audio-players.OnW {
+  width: 425px;
+  transition: 1s;
+  /* bottom: -10px; */
+}
+
+.ram-b-audio-players-icons {
+  /* background-color: #0c08d1; */
+  width: 70px;
+  height: 70px;
+  position: relative;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  transition: 1s;
+  padding: 25px;
+}
+
+/* .ram-w-audio-players-icons:hover {
+  width: 100px;
+  height: 100px;
+} */
+/* .prev-n-next-button:hover {
+  .ram-w-audio-players-icons {
+    width: 100px;
+    height: 100px;
+    color: red;
+  }
+} */
+
+/* .prev-n-next-button:hover .ram-w-audio-players-icons {
+  width: 100px;
+  height: 100px;
+  color: red;
+  transform: 200px;
+  transform: scale(2.5) !important;
+} */
+
+.ram-w-audio-players-icons.hovered {
+  width: 100px;
+  height: 100px;
+}
+
+.hovered {
+  color: red;
+  width: 100px;
+  height: 100px;
+}
+
 .ram-w-i {
   position: absolute;
   width: 705px;
@@ -639,7 +765,7 @@ h1 {
   height: 53.95px;
   /* left: 680px;
       top: 807px; */
-
+  top: 0px;
   background: #200606;
 }
 
@@ -662,11 +788,11 @@ h1 {
   top: 205px;
 }
 
-.folder.on {
+.folderOn {
   animation: folder-on 1s;
 }
 
-.folder.off {
+.folderOff {
   animation: folder-off 1s;
   display: none;
 }
@@ -713,7 +839,7 @@ h1 {
 .folder-bacg {
   position: absolute;
   width: 538px;
-  height: 710px;
+  height: 690px;
 
   background: #681723;
   filter: blur(10px);
@@ -806,4 +932,32 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.selectionMenu {
+  width: 410px;
+  height: 680px;
+  background: #681723;
+  /* display: block; */
+  position: relative;
+  top: 275px;
+  border-radius: 20px;
+  transition: 1s;
+  z-index: 1;
+
+  right: 390px;
+}
+
+.selectionMenu.MenuOn {
+  right: 0px;
+  transition: 1s;
+}
+
+.strelka.MenuOn {
+  left: 250px;
+  transition: 1s;
+}
+
+.musiсSelectionMenu {
+  position: absolute;
 }
