@@ -18,13 +18,51 @@ import AudioPlayer, {
   VolumeSliderPlacement,
 } from "react-modern-audio-player";
 import Editor from "./Editor.tsx";
+import { playList } from "./playList.ts";
 
 function Header() {
+  const [count, setCount] = useState(0);
+  const [progressType, setProgressType] = useState<ProgressUI>("bar");
+  const [playerPlacement, setPlayerPlacement] =
+    useState<PlayerPlacement>("static");
+  const [interfacePlacement, setInterfacePlacement] =
+    useState<InterfaceGridTemplateArea>({
+      // playList: "row2-1",
+      // // progress: "row1-2",
+      // playButton: "row2-2",
+      // // volume: "row2-3",
+    });
+  const [playListPlacement, setPlayListPlacement] =
+    useState<PlayListPlacement>("bottom");
+  const [volumeSliderPlacement, setVolumeSliderPlacement] =
+    useState<VolumeSliderPlacement>();
+  const [theme, setTheme] = useState<"dark" | "light" | undefined>();
+  const [width, setWidth] = useState("100%");
+  const [activeUI, setActiveUI] = useState<ActiveUI>({
+    playList: true,
+  });
+
   const [activeStr, setActiveStr] = useState(null);
   const [strelkaClicked, setStrelkaClicked] = useState(false);
   const [folderPowerOn, setFolderPowerOn] = useState(false);
 
+  function simulateClick(element: any) {
+    const event = new MouseEvent("click", {
+      bubbles: true,
+      cancelable: true,
+      view: window,
+    });
+    element.dispatchEvent(event);
+  }
+
   const handleStrelkaClick = () => {
+    const drawerContainers = document.querySelectorAll(
+      ".drawer-trigger-wrapper"
+    );
+    drawerContainers.forEach((drawerContainer) => {
+      simulateClick(drawerContainer);
+    });
+
     const selectionMenuId = document.getElementById("selectionMenuId");
     const strelkaElement = document.getElementById("strelkaId");
     const isMenuOn = strelkaElement?.classList.contains("MenuOn");
@@ -79,7 +117,7 @@ function Header() {
     }
   };
 
-  const handleClick = (str: any) => {
+  const handleClick = (str: string) => {
     setActiveStr((prevStr) => {
       if (prevStr === str) {
         // Если снова нажата та же самая иконка, деактивируем её
@@ -162,6 +200,7 @@ function Header() {
     const WindowDownloads = document.getElementById("WindowDownloads");
     if (activate) {
       CloseMenuSelection(true);
+
       WindowDownloads?.classList.add("folderOn");
       WindowDownloads?.classList.remove("folderOff");
     } else {
@@ -174,6 +213,7 @@ function Header() {
     const WindowLiked = document.getElementById("WindowLiked");
     if (activate) {
       CloseMenuSelection(true);
+
       WindowLiked?.classList.add("folderOn");
       WindowLiked?.classList.remove("folderOff");
     } else {
@@ -219,6 +259,56 @@ function Header() {
     selectionMenuId?.classList.add("MenuOn");
     strelkaElement?.classList.add("MenuOn");
   }
+
+  function addIdsToElements() {
+    const elements = document.querySelectorAll(".list-item-root-container");
+    elements.forEach((element, index) => {
+      element.setAttribute("id", `ListList-${index + 1}`);
+    });
+  }
+
+  useEffect(() => {
+    setInterval(() => {
+      const drawerContainers = document.querySelectorAll(
+        ".drawer-trigger-wrapper"
+      );
+      drawerContainers.forEach((drawerContainer) => {
+        simulateClick(drawerContainer);
+      });
+    }, 1);
+  }, []);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      addIdsToElements();
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const handleClickS = (liId: string | number) => {
+    // Преобразуем liId в строку
+    const idString = liId.toString();
+    // Извлекаем порядковый номер из id элемента списка li
+    const liIndex = parseInt(idString.substring(idString.lastIndexOf("-") + 1));
+    // Формируем id элемента с ListList-
+    const listId = `ListList-${liIndex}`;
+    // Находим элемент с нужным id
+    const listElement = document.getElementById(listId);
+
+    const elementsWithWhiteClass = document.querySelectorAll(".White");
+    elementsWithWhiteClass.forEach((element) => {
+      element.classList.remove("White");
+    });
+
+    const SlistElement = document.getElementById(liId.toString());
+    if (SlistElement) {
+      SlistElement.classList.add("White");
+      if (listElement) {
+        simulateClick(listElement);
+      }
+    }
+  };
 
   return (
     <header className="header">
@@ -294,7 +384,26 @@ function Header() {
         <div
           id="selectionMenuId"
           className={`selectionMenu${strelkaClicked ? " MenuOn" : ""}`}
-        ></div>
+        >
+          <ul className="SelectionMenu__UL">
+            {playList.map((song) => (
+              <li
+                className="SelectionMenu__LI"
+                key={song.id}
+                id={song.id}
+                onClick={() => handleClickS(song.id)}
+              >
+                <img
+                  className="SelectionMenu__IMG"
+                  src={song.img}
+                  alt={song.name}
+                />
+                <p className="SelectionMenu__NAME">{song.name}</p>
+                <p className="SelectionMenu__WRITER">{song.writer}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
         <div id="strelkaId" className="strelka" onClick={handleStrelkaClick}>
           <div className="strelka-icon-group">
             <img

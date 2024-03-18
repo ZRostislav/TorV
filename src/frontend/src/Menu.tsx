@@ -56,6 +56,7 @@ function Menu() {
     prevNnext: true,
     artwork: true,
     progress: false,
+    playList: true,
   });
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -82,6 +83,10 @@ function Menu() {
     const handleMouseOverW = () => {
       ramWAudioW.classList.add("hovered");
       ramWAudioP.classList.add("hovered");
+      const elementsWithWhiteClass = document.querySelectorAll(".White");
+      elementsWithWhiteClass.forEach((element) => {
+        element.classList.remove("White");
+      });
     };
 
     const handleMouseOutW = () => {
@@ -153,6 +158,8 @@ function Menu() {
                 rootContainerProps={{
                   colorScheme: theme,
                   width,
+
+                  zIndex: 9999,
                 }}
               />
             </div>

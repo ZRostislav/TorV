@@ -15,6 +15,7 @@ import Editor from "./Editor.tsx";
 
 import Header from "./Header.tsx";
 import Menu from "./Menu.tsx";
+import Bck from "./Bck.tsx";
 import { playList } from "./playList.ts";
 // import Testing from "./STesting.jsx";
 
@@ -77,8 +78,9 @@ function Player() {
 function App() {
   return (
     <>
-      <Header />
       <Menu />
+      <Header />
+      <Bck />
       {/* <Player /> */}
     </>
   );

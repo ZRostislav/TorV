@@ -15,7 +15,8 @@ u .rm-audio-player-provider,
 .rm-audio-player-provider,
 #rm-audio-player,
 .player-container-menu,
-.interface-grid {
+.interface-grid,
+.drawer-container {
   z-index: 20 !important;
   position: relative !important;
   bottom: auto !important;
@@ -58,18 +59,47 @@ u .rm-audio-player-provider,
 }
 
 .btn-wrapper {
-  /* top: 7px; */
-  position: relative;
-  bottom: 210px;
-  /* left: -4%; */
+  top: 7px; */
+  position: fixed;
+  /* bottom: 210px; */
+  top: 29.7%;
+  left: 45.5%;
   gap: 40px !important;
-  right: 3%;
-  opacity: 0;
+  /* right: 3%; */
+   opacity: 0; 
+   position: fixed;
 }
 
 .btn-wrapper.OnW {
-  top: -163px;
+  top: 27.5%;
+  left: 23.4%;
 }
+
+.drawer-container {
+  right: 1174px;
+  bottom: 236px !important;
+  /* top: 4px; */
+  background: red !important;
+  width: 318px;
+  height: 93px;
+  display: none !important;
+}
+
+.sortable-play-list {
+  display: none !important;
+  position: fixed;
+    z-index: 9999 !important;
+    /* left: 5px; */
+    bottom: 114px;
+    /* top: 23px; */
+    width: 375px;
+}
+
+.playlist-content-enter-active {
+  max-height: 90vh !important; 
+}
+
+
 
 #rm-audio-player {
   /* --rm-audio-player-interface-container: var(--spectrum-global-color-gray-100); */

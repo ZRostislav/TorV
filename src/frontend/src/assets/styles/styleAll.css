@@ -1,4 +1,18 @@
-.main {
+/*
+ .main {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; 
+  height: 100%; 
+
+  background-size: cover;
+  z-index: 0;
+} 
+*/
+
+.Bck {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -7,10 +21,10 @@
   height: 100%; /* 100% высоты экрана */
   background: url(../../assets/img/сам_фон.jpg) center center no-repeat;
   background-size: cover;
-  z-index: 0;
+  z-index: -99;
 }
 
-.main::before {
+.Bck::before {
   content: "";
   position: absolute;
   top: 0;
@@ -22,12 +36,12 @@
     rgba(32, 6, 6, 0) 0%,
     #200606 100%
   );
-  z-index: 1; /* Установите значение z-index, чтобы обеспечить, что этот слой находится поверх основного фона */
+  /* z-index: 1;  */
 }
 
 .content {
   position: relative;
-  z-index: 3;
+  z-index: 9999 !important;
 }
 
 h1 {
@@ -73,6 +87,7 @@ h1 {
   display: flex;
   align-items: center;
   background-size: cover;
+  transition: 1s;
 }
 
 .blocks::before {
@@ -552,7 +567,7 @@ h1 {
       top: 260px; */
 
   background: #681723;
-  filter: blur(40px);
+  filter: blur(50px);
   border-radius: 166px;
   animation: center-bacg-folder-power-on 1s;
 }
@@ -876,10 +891,7 @@ h1 {
   width: 427px;
   height: 67px;
 
-  font-family: "Literata";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 45px;
+  font-size: 25px;
   line-height: 67px;
   /* identical to box height */
   /* hanging-punctuation is currently only supported in Safari. */
@@ -944,6 +956,7 @@ footer {
   border-radius: 20px;
   transition: 1s;
   z-index: 1;
+  box-shadow: 1px 5px 5px rgba(0, 0, 0, 1.25);
 
   right: 390px;
 }
@@ -960,4 +973,75 @@ footer {
 
 .musiсSelectionMenu {
   position: absolute;
+}
+
+.SelectionMenu__UL {
+  padding: 10px;
+  position: relative;
+  left: 20px;
+  /* width: 102px; */
+  height: 97%;
+  width: 90%;
+  /* border: 2px solid black; */
+  overflow: auto;
+  /* background: #888; */
+  /* border-radius: 6px; */
+}
+
+.SelectionMenu__LI {
+  position: relative;
+  /* display: block; */
+  padding: 0px 0px 10px;
+  /* border: aliceblue; */
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 0px 0px 10px 0px;
+  cursor: pointer;
+
+  transition: 1s;
+}
+
+.SelectionMenu__LI.White {
+  transition: 1s;
+  background: #ffffff1f;
+}
+
+.SelectionMenu__IMG {
+  width: 20%;
+  height: 63px;
+  position: absolute;
+  /* display: block; */
+  /* padding: 0px 0px 0px; */
+  /* top: 15px; */
+  /* left: 5px; */
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.SelectionMenu__NAME {
+  position: relative;
+  padding: 0px 0px 0px 80px;
+  font-size: 15px;
+  top: 2px;
+  display: inline-flex;
+}
+
+.SelectionMenu__WRITER {
+  position: relative;
+  padding: 5px 0px 0px 80px;
+}
+
+/* Webkit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 10px; /* Ширина полосы прокрутки */
+}
+
+::-webkit-scrollbar-track {
+  background: none; /* Цвет фона трека */
+  margin: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5); /* Цвет полосы прокрутки */
+  border-radius: 5px; /* Скругление углов полосы прокрутки */
 }
