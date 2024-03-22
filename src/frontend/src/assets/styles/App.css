@@ -7,7 +7,7 @@
 u .rm-audio-player-provider,
 #rm-audio-player,
 .player-container-menu {
-  z-index: 20 !important;
+  /* z-index: 20 !important; */
   position: relative !important;
   bottom: auto !important;
 }
@@ -17,7 +17,7 @@ u .rm-audio-player-provider,
 .player-container-menu,
 .interface-grid,
 .drawer-container {
-  z-index: 20 !important;
+  /* z-index: 20 !important; */
   position: relative !important;
   bottom: auto !important;
   background: none !important;
@@ -88,7 +88,7 @@ u .rm-audio-player-provider,
 .sortable-play-list {
   display: none !important;
   position: fixed;
-    z-index: 9999 !important;
+    /* z-index: 9999 !important; */
     /* left: 5px; */
     bottom: 114px;
     /* top: 23px; */

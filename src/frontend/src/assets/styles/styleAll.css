@@ -437,14 +437,14 @@ h1 {
   0% {
     width: 608px;
     height: 618px;
-    background: #681723;
+    /* background: #681723; */
     filter: blur(40px);
     border-radius: 166px;
   }
   100% {
     width: 1005px;
     height: 700px;
-    background: #681723;
+    /* background: #681723; */
     filter: blur(40px);
     border-radius: 166px;
   }
@@ -454,14 +454,14 @@ h1 {
   0% {
     width: 1005px;
     height: 700px;
-    background: #681723;
+    /* background: #681723; */
     filter: blur(40px);
     border-radius: 166px;
   }
   100% {
     width: 608px;
     height: 618px;
-    background: #681723;
+    /* background: #681723; */
     filter: blur(40px);
     border-radius: 166px;
   }
@@ -736,6 +736,12 @@ h1 {
 } */
 
 .ram-w-audio-players-icons.hovered {
+  width: 100px;
+  height: 100px;
+}
+
+.ram-w-audio-players-icons:hover {
+  cursor: pointer;
   width: 100px;
   height: 100px;
 }
@@ -1044,4 +1050,191 @@ footer {
 ::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.5); /* Цвет полосы прокрутки */
   border-radius: 5px; /* Скругление углов полосы прокрутки */
+}
+
+.equalizer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  height: 300px; /* Высота эквалайзера */
+}
+
+.bar {
+  width: 5px; /* Ширина столбцов */
+  background-color: #2196f3; /* Цвет столбцов */
+  margin: 0 2px; /* Расстояние между столбцами */
+}
+
+.themesList {
+  position: absolute;
+  /* right: 91px; */
+  padding: 65px 0px 0px 110px;
+}
+
+.themesListClass {
+  position: relative;
+  display: inline-block;
+
+  width: 300px;
+  height: 180px;
+  margin: 5px;
+  border-radius: 45px;
+  filter: blur(1px);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: 1s;
+  cursor: pointer;
+}
+
+.themesListClass:active {
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.5);
+}
+
+.themesListClass:hover {
+  filter: blur(0px);
+  transition: 1s;
+  width: 305px;
+  height: 185px;
+}
+
+.icon-bacg.themeis2 {
+  background: linear-gradient(90deg, #eb5326 2.66%, #0e51ff 97.52%);
+}
+
+.icon-bacg2.themeis2 {
+  animation: icon2BacgThemis2 5s;
+  background: linear-gradient(
+    90deg,
+    rgba(235, 83, 38, 0.3) 2.66%,
+    rgba(14, 81, 255, 0.3) 97.52%
+  );
+}
+
+.shil.themeis2 {
+  background: #3e2343;
+}
+
+.folder-bacg.themeis2 {
+  background: #3e2343;
+}
+
+.center-bacg.themeis2.folderPowerOn {
+  background: #3e2343;
+}
+
+.center-bacg.themeis2.folderPowerOff {
+  background: #3e2343;
+}
+
+.strelka.themeis2.MenuOn {
+  background: #3e2343;
+}
+
+.strelka.themeis2 {
+  background: #3e2343;
+}
+
+.selectionMenu.themeis2.MenuOn {
+  background: #3e2343;
+}
+
+.selectionMenu.themeis2 {
+  background: #3e2343;
+}
+
+.Bck.themeis2 {
+  background: url(../../assets/img/testing/back2.jpg) center center no-repeat;
+}
+.icon-bacg.themeis3 {
+  background: linear-gradient(90deg, #7f20dd 2.66%, #d21515 97.52%);
+}
+
+.icon-bacg2.themeis3 {
+  background: linear-gradient(
+    90deg,
+    rgba(127, 32, 221, 0.3) 2.66%,
+    rgba(210, 21, 21, 0.3) 97.52%
+  );
+}
+
+.shil.themeis3 {
+  background: #7d2a5c;
+}
+
+.folder-bacg.themeis3 {
+  background: #7d2a5c;
+}
+
+.center-bacg.themeis3.folderPowerOn {
+  background: #7d2a5c;
+}
+
+.center-bacg.themeis3.folderPowerOff {
+  background: #7d2a5c;
+}
+
+.strelka.themeis3.MenuOn {
+  background: #7d2a5c;
+}
+
+.strelka.themeis3 {
+  background: #7d2a5c;
+}
+
+.selectionMenu.themeis3.MenuOn {
+  background: #7d2a5c;
+}
+
+.selectionMenu.themeis3 {
+  background: #7d2a5c;
+}
+
+.Bck.themeis3 {
+  background: url(../../assets/img/testing/back3.jpg) center center no-repeat;
+}
+
+.folder-history-song {
+  padding: 10px;
+  position: absolute;
+  left: 40px;
+  width: 85%;
+  height: 560px;
+  top: 68px;
+  /* width: 90%; */
+  /* border: 2px solid black; */
+  overflow: auto;
+  /* background: #888; */
+}
+
+.folder-history-song-list {
+  position: relative;
+  /* display: block; */
+  padding: 0px 0px 15px;
+  /* border: aliceblue; */
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 0px 0px 10px 0px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.folder-history-song-list p {
+  position: relative;
+  padding: 0px 0px 0px 80px;
+  font-size: 15px;
+  top: 2px;
+  display: inline-flex;
+}
+
+.folder-history-song-list img {
+  width: 15%;
+  height: 63px;
+  position: absolute;
+  /* display: block; */
+  /* padding: 0px 0px 0px; */
+  /* top: 15px; */
+  /* left: 5px; */
+  border-radius: 5px;
+  z-index: -1;
 }

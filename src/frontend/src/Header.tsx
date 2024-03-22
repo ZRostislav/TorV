@@ -20,7 +20,8 @@ import AudioPlayer, {
 import Editor from "./Editor.tsx";
 import { playList } from "./playList.ts";
 
-function Header() {
+function Header({ visionCountHeader, setVisionCountHeader }: any) {
+  // const [count, setCount] = useState(0);
   const [count, setCount] = useState(0);
   const [progressType, setProgressType] = useState<ProgressUI>("bar");
   const [playerPlacement, setPlayerPlacement] =
@@ -308,6 +309,8 @@ function Header() {
         simulateClick(listElement);
       }
     }
+
+    setVisionCountHeader(liId);
   };
 
   return (
