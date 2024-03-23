@@ -21,6 +21,10 @@ import Save from "./assets/img/testing/save.png";
 import Lovers from "./assets/img/testing/lovers.png";
 import Download from "./assets/img/testing/download.png";
 
+import setSave from "./assets/img/testing/setsave.png";
+import setLovers from "./assets/img/testing/setlovers.png";
+import setDownload from "./assets/img/testing/setdownload.png";
+
 //themes2
 import PlayTheme2 from "./assets/img/testing/playTheme2.png";
 import StopTheme2 from "./assets/img/testing/stopTheme2.png";
@@ -45,7 +49,7 @@ import back1 from "./assets/img/сам_фон.jpg";
 import back2 from "./assets/img/testing/back2.jpg";
 import back3 from "./assets/img/testing/back3.jpg";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import AudioPlayer, {
   ActiveUI,
   InterfaceGridTemplateArea,
@@ -65,6 +69,12 @@ interface PlaylistItem {
 }
 
 function Menu({ visionCountHeader, setVisionCountHeader }: any) {
+  const ramBAudioLoversRef = useRef<HTMLImageElement>(null);
+  const ramBAudioDownloadRef = useRef<HTMLImageElement>(null);
+  const ramBAudioSaveRef = useRef<HTMLImageElement>(null);
+  const [likedSongs, setLikedSongs] = useState<PlaylistItem[]>([]);
+  const [DownloadSongs, setDownloadSongs] = useState<PlaylistItem[]>([]);
+  const [SaveSongs, setSaveSongs] = useState<PlaylistItem[]>([]);
   const [currentTheme, setCurrentTheme] = useState<
     "theme1" | "theme2" | "theme3"
   >("theme1");
@@ -150,16 +160,12 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
 
   const Themes3 = () => {
     const themi3 = document.querySelectorAll(
-      ".icon-bacg, .icon-bacg2, .shil, .folder-bacg, .center-bacg, .strelka, .selectionMenu, .Bck"
+      ".icon-bacg, .icon-bacg2, .shil, .folder-bacg, .center-bacg, .strelka, .selectionMenu, .Bck, .barProgressWrapper, .bar-progress-wrapper, .rm-player-progress-handle, .rm-player-progress"
     );
 
     const ramWAudioW = document.getElementById("ramWAudioW");
     const ramWAudioPlay = document.getElementById("ramWAudioPlay");
     const ramAudioP = document.getElementById("ramWAudioP");
-
-    const ramBAudioSave = document.getElementById("ramBAudioSave");
-    const ramBAudioLovers = document.getElementById("ramBAudioLovers");
-    const ramBAudioDownload = document.getElementById("ramBAudioDownload");
 
     if (ramWAudioW) {
       ramWAudioW.src = wTheme3;
@@ -170,18 +176,10 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
     if (ramAudioP) {
       ramAudioP.src = pTheme3;
     }
-    if (ramBAudioSave) {
-      ramBAudioSave.src = SaveTheme3;
-    }
-    if (ramBAudioLovers) {
-      ramBAudioLovers.src = LoversTheme3;
-    }
-    if (ramBAudioDownload) {
-      ramBAudioDownload.src = DownloadTheme3;
-    }
 
     themi3.forEach((themi3) => {
       themi3.classList.add("themeis3");
+      themi3.classList.remove("themeis2");
     });
 
     setCurrentTheme("theme3");
@@ -189,16 +187,12 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
 
   const Themes2 = () => {
     const themi2 = document.querySelectorAll(
-      ".icon-bacg, .icon-bacg2, .shil, .folder-bacg, .center-bacg, .strelka, .selectionMenu, .Bck"
+      ".icon-bacg, .icon-bacg2, .shil, .folder-bacg, .center-bacg, .strelka, .selectionMenu, .Bck, .barProgressWrapper, .bar-progress-wrapper, .rm-player-progress-handle, .rm-player-progress"
     );
 
     const ramWAudioW = document.getElementById("ramWAudioW");
     const ramWAudioPlay = document.getElementById("ramWAudioPlay");
     const ramAudioP = document.getElementById("ramWAudioP");
-
-    const ramBAudioSave = document.getElementById("ramBAudioSave");
-    const ramBAudioLovers = document.getElementById("ramBAudioLovers");
-    const ramBAudioDownload = document.getElementById("ramBAudioDownload");
 
     if (ramWAudioW) {
       ramWAudioW.src = wTheme2;
@@ -208,15 +202,6 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
     }
     if (ramAudioP) {
       ramAudioP.src = pTheme2;
-    }
-    if (ramBAudioSave) {
-      ramBAudioSave.src = SaveTheme2;
-    }
-    if (ramBAudioLovers) {
-      ramBAudioLovers.src = LoversTheme2;
-    }
-    if (ramBAudioDownload) {
-      ramBAudioDownload.src = DownloadTheme2;
     }
 
     themi2.forEach((themi2) => {
@@ -229,16 +214,12 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
 
   const Themes1 = () => {
     const themi1 = document.querySelectorAll(
-      ".icon-bacg, .icon-bacg2, .shil, .folder-bacg, .center-bacg, .strelka, .selectionMenu, .Bck"
+      ".icon-bacg, .icon-bacg2, .shil, .folder-bacg, .center-bacg, .strelka, .selectionMenu, .Bck, .barProgressWrapper, .bar-progress-wrapper, .rm-player-progress-handle, .rm-player-progress"
     );
 
     const ramWAudioW = document.getElementById("ramWAudioW");
     const ramWAudioPlay = document.getElementById("ramWAudioPlay");
     const ramAudioP = document.getElementById("ramWAudioP");
-
-    const ramBAudioSave = document.getElementById("ramBAudioSave");
-    const ramBAudioLovers = document.getElementById("ramBAudioLovers");
-    const ramBAudioDownload = document.getElementById("ramBAudioDownload");
 
     if (ramWAudioW) {
       ramWAudioW.src = w;
@@ -248,15 +229,6 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
     }
     if (ramAudioP) {
       ramAudioP.src = p;
-    }
-    if (ramBAudioSave) {
-      ramBAudioSave.src = Save;
-    }
-    if (ramBAudioLovers) {
-      ramBAudioLovers.src = Lovers;
-    }
-    if (ramBAudioDownload) {
-      ramBAudioDownload.src = Download;
     }
 
     themi1.forEach((themi1) => {
@@ -272,6 +244,38 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
     const listElementSSS = document.getElementById(idStringSSid);
     if (listElementSSS) {
       simulateClick(listElementSSS); // Передаем найденный элемент в функцию simulateClick
+    }
+  };
+
+  const handleSongClickSSSS = (songId, playList) => {
+    const song = playList.find((item) => item.id === songId);
+    if (song) {
+      const downloadLink = document.createElement("a");
+      downloadLink.href = song.src;
+      downloadLink.download = `song_${songId}.mp3`;
+      downloadLink.style.display = "none";
+      // Установим target в _blank, чтобы открыть ссылку в новой вкладке
+      downloadLink.target = "_blank";
+      document.body.appendChild(downloadLink);
+
+      // Создаём обработчик события, который удаляет ссылку после скачивания файла
+      const removeLink = () => {
+        document.body.removeChild(downloadLink);
+        window.removeEventListener("focus", removeLink);
+      };
+
+      // Добавляем обработчик события, чтобы убедиться, что ссылка удаляется после скачивания файла
+      window.addEventListener("focus", removeLink);
+
+      // Создаём и симулируем клик по ссылке
+      const clickEvent = new MouseEvent("click", {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+      });
+      downloadLink.dispatchEvent(clickEvent);
+    } else {
+      console.error("Song not found in playList");
     }
   };
 
@@ -293,17 +297,17 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
   const ramWAudioWS = () => {
     const ramWP = document.getElementById("ramWP");
     simulateClick(ramWP);
+
     if (visionCountHeader === playList.length) {
       setVisionCountHeader(1); // Первый id
     } else {
       setVisionCountHeader(visionCountHeader + 1);
     }
-    // simulateClick(prevNextButtons);
   };
-
   const ramWAudioPS = () => {
     const ramWW = document.getElementById("ramWW");
     simulateClick(ramWW);
+
     if (visionCountHeader === 1) {
       setVisionCountHeader(playList.length); // Последний id
     } else {
@@ -312,11 +316,90 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
   };
 
   useEffect(() => {
+    const ramBAudioDownload = ramBAudioDownloadRef.current;
+
+    // Проверка наличия элемента с id, соответствующим visionCountHeader
+    const DownloadItem = document.getElementById(
+      `${visionCountHeader}-Download`
+    );
+
+    if (DownloadItem) {
+      const DownloadItemId = DownloadItem.id.split("-")[0];
+      // Если id совпадает с visionCountHeader, устанавливаем setLovers в качестве src
+      if (DownloadItemId === visionCountHeader.toString()) {
+        ramBAudioDownload.src = setDownload;
+      } else {
+        // Если id не совпадает, устанавливаем Lovers в качестве src
+        ramBAudioDownload.src = Download;
+      }
+    } else if (currentTheme === "theme3") {
+      ramBAudioDownload.src = DownloadTheme3;
+    } else if (currentTheme === "theme2") {
+      ramBAudioDownload.src = DownloadTheme2;
+    } else {
+      ramBAudioDownload.src = Download;
+    }
+  });
+
+  useEffect(() => {
+    const ramBAudioLovers = ramBAudioLoversRef.current;
+
+    // Проверка наличия элемента с id, соответствующим visionCountHeader
+    const likedItem = document.getElementById(`${visionCountHeader}-Liked`);
+
+    if (likedItem) {
+      const likedItemId = likedItem.id.split("-")[0];
+      // Если id совпадает с visionCountHeader, устанавливаем setLovers в качестве src
+      if (likedItemId === visionCountHeader.toString()) {
+        ramBAudioLovers.src = setLovers;
+      } else {
+        // Если id не совпадает, устанавливаем Lovers в качестве src
+        ramBAudioLovers.src = Lovers;
+      }
+    } else if (currentTheme === "theme3") {
+      ramBAudioLovers.src = LoversTheme3;
+    } else if (currentTheme === "theme2") {
+      ramBAudioLovers.src = LoversTheme2;
+    } else {
+      ramBAudioLovers.src = Lovers;
+    }
+  });
+
+  useEffect(() => {
+    const ramBAudioSave = ramBAudioSaveRef.current;
+
+    // Проверка наличия элемента с id, соответствующим visionCountHeader
+    const SaveItem = document.getElementById(`${visionCountHeader}-Save`);
+
+    if (SaveItem) {
+      const SaveItemId = SaveItem.id.split("-")[0];
+      // Если id совпадает с visionCountHeader, устанавливаем setLovers в качестве src
+      if (SaveItemId === visionCountHeader.toString()) {
+        ramBAudioSave.src = setSave;
+      } else {
+        // Если id не совпадает, устанавливаем Lovers в качестве src
+        ramBAudioSave.src = Save;
+      }
+    } else if (currentTheme === "theme3") {
+      ramBAudioSave.src = SaveTheme3;
+    } else if (currentTheme === "theme2") {
+      ramBAudioSave.src = SaveTheme2;
+    } else {
+      ramBAudioSave.src = Save;
+    }
+  });
+
+  useEffect(() => {
+    const bar = document.querySelectorAll(".bar-progress-wrapper");
     const buttons = document.querySelectorAll(".prev-n-next-button");
     const playButton = document.querySelectorAll(".play-button");
     playButton.forEach(function (button) {
       // Set the id attribute of each playButton element to "playB"
       button.id = "playB";
+    });
+    bar.forEach(function (button) {
+      // Set the id attribute of each playButton element to "playB"
+      button.id = "barProgressWrapper";
     });
 
     buttons.forEach((button, index) => {
@@ -346,6 +429,351 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
       setPlayListItems([...playListItems, newSong]);
     }
   }, [playList, visionCountHeader, playListItems]);
+
+  useEffect(() => {
+    const handleDownloadClick = () => {
+      if (ramBAudioDownloadRef.current) {
+        const ramBAudioDownload = ramBAudioDownloadRef.current;
+        // Проверяем, какое изображение в настоящее время отображается
+        const isSetDownload = ramBAudioDownload.src.includes(setDownload);
+        let newDownloadImage;
+        // Определяем новое изображение в зависимости от текущей темы
+        if (isSetDownload) {
+          if (currentTheme === "theme1") {
+            newDownloadImage = Download;
+          } else if (currentTheme === "theme2") {
+            newDownloadImage = DownloadTheme2;
+          } else if (currentTheme === "theme3") {
+            newDownloadImage = DownloadTheme3;
+          }
+        } else {
+          // Если текущее изображение не setLovers, то устанавливаем его в setLovers
+          newDownloadImage = setDownload;
+        }
+        // Присваиваем новое изображение
+        ramBAudioDownload.src = newDownloadImage;
+
+        if (newDownloadImage === setDownload) {
+          ramBAudioDownload.classList.add("changeSrcAnimation");
+          // Удаляем класс анимации через некоторое время
+          setTimeout(() => {
+            ramBAudioDownload.classList.remove("changeSrcAnimation");
+          }, 1000); // Время анимации в миллисекундах
+        }
+      }
+    };
+
+    const ramBAudioDownload = document.getElementById("ramBAudioDownload");
+    if (ramBAudioDownload) {
+      ramBAudioDownload.addEventListener("click", handleDownloadClick);
+    }
+
+    // Проверяем, нужно ли обновить изображение в соответствии с текущей темой
+    if (ramBAudioDownloadRef.current) {
+      const ramBAudioDownload = ramBAudioDownloadRef.current;
+      if (!ramBAudioDownload.src.includes(setDownload)) {
+        let newDownloadImage;
+        if (currentTheme === "theme1") {
+          newDownloadImage = Download;
+        } else if (currentTheme === "theme2") {
+          newDownloadImage = DownloadTheme2;
+        } else if (currentTheme === "theme3") {
+          newDownloadImage = DownloadTheme3;
+        }
+        ramBAudioDownload.src = newDownloadImage;
+      }
+    }
+
+    return () => {
+      if (ramBAudioDownload) {
+        ramBAudioDownload.removeEventListener("click", handleDownloadClick);
+      }
+    };
+  }, [currentTheme]);
+
+  useEffect(() => {
+    const handleLoversClick = () => {
+      if (ramBAudioLoversRef.current) {
+        const ramBAudioLovers = ramBAudioLoversRef.current;
+        // Проверяем, какое изображение в настоящее время отображается
+        const isSetLovers = ramBAudioLovers.src.includes(setLovers);
+        let newLoversImage;
+        // Определяем новое изображение в зависимости от текущей темы
+        if (isSetLovers) {
+          if (currentTheme === "theme1") {
+            newLoversImage = Lovers;
+          } else if (currentTheme === "theme2") {
+            newLoversImage = LoversTheme2;
+          } else if (currentTheme === "theme3") {
+            newLoversImage = LoversTheme3;
+          }
+        } else {
+          // Если текущее изображение не setLovers, то устанавливаем его в setLovers
+          newLoversImage = setLovers;
+        }
+        // Присваиваем новое изображение
+        ramBAudioLovers.src = newLoversImage;
+
+        if (newLoversImage === setLovers) {
+          ramBAudioLovers.classList.add("changeSrcAnimation");
+          // Удаляем класс анимации через некоторое время
+          setTimeout(() => {
+            ramBAudioLovers.classList.remove("changeSrcAnimation");
+          }, 1000); // Время анимации в миллисекундах
+        }
+      }
+    };
+
+    const ramBAudioLovers = document.getElementById("ramBAudioLovers");
+    if (ramBAudioLovers) {
+      ramBAudioLovers.addEventListener("click", handleLoversClick);
+    }
+
+    // Проверяем, нужно ли обновить изображение в соответствии с текущей темой
+    if (ramBAudioLoversRef.current) {
+      const ramBAudioLovers = ramBAudioLoversRef.current;
+      if (!ramBAudioLovers.src.includes(setLovers)) {
+        let newLoversImage;
+        if (currentTheme === "theme1") {
+          newLoversImage = Lovers;
+        } else if (currentTheme === "theme2") {
+          newLoversImage = LoversTheme2;
+        } else if (currentTheme === "theme3") {
+          newLoversImage = LoversTheme3;
+        }
+        ramBAudioLovers.src = newLoversImage;
+      }
+    }
+
+    return () => {
+      if (ramBAudioLovers) {
+        ramBAudioLovers.removeEventListener("click", handleLoversClick);
+      }
+    };
+  }, [currentTheme]);
+
+  useEffect(() => {
+    const handleSaveClick = () => {
+      if (ramBAudioSaveRef.current) {
+        const ramBAudioSave = ramBAudioSaveRef.current;
+        // Проверяем, какое изображение в настоящее время отображается
+        const isSetSave = ramBAudioSave.src.includes(setSave);
+        let newSaveImage;
+        // Определяем новое изображение в зависимости от текущей темы
+        if (isSetSave) {
+          if (currentTheme === "theme1") {
+            newSaveImage = Save;
+          } else if (currentTheme === "theme2") {
+            newSaveImage = SaveTheme2;
+          } else if (currentTheme === "theme3") {
+            newSaveImage = SaveTheme3;
+          }
+        } else {
+          // Если текущее изображение не setLovers, то устанавливаем его в setLovers
+          newSaveImage = setSave;
+        }
+        // Присваиваем новое изображение
+        ramBAudioSave.src = newSaveImage;
+
+        if (newSaveImage === setSave) {
+          ramBAudioSave.classList.add("changeSrcAnimationS");
+          // Удаляем класс анимации через некоторое время
+          setTimeout(() => {
+            ramBAudioSave.classList.remove("changeSrcAnimationS");
+          }, 1000); // Время анимации в миллисекундах
+        }
+      }
+    };
+
+    const ramBAudioSave = document.getElementById("ramBAudioSave");
+    if (ramBAudioSave) {
+      ramBAudioSave.addEventListener("click", handleSaveClick);
+    }
+
+    // Проверяем, нужно ли обновить изображение в соответствии с текущей темой
+    if (ramBAudioSaveRef.current) {
+      const ramBAudioSave = ramBAudioSaveRef.current;
+      if (!ramBAudioSave.src.includes(setSave)) {
+        let newSaveImage;
+        if (currentTheme === "theme1") {
+          newSaveImage = Save;
+        } else if (currentTheme === "theme2") {
+          newSaveImage = SaveTheme2;
+        } else if (currentTheme === "theme3") {
+          newSaveImage = SaveTheme3;
+        }
+        ramBAudioSave.src = newSaveImage;
+      }
+    }
+
+    return () => {
+      if (ramBAudioSave) {
+        ramBAudioSave.removeEventListener("click", handleSaveClick);
+      }
+    };
+  }, [currentTheme]);
+
+  const handleLoversClick = () => {
+    // Получение текущей песни на основе visionCountHeader
+    const currentSong = playList.find((song) => song.id === visionCountHeader);
+
+    // Проверка, что такая песня найдена
+    if (currentSong) {
+      // Проверяем, содержится ли текущая песня уже в списке понравившихся песен
+      const isAlreadyLiked = likedSongs.some(
+        (song) => song.id === currentSong.id
+      );
+
+      // Если текущая песня уже есть в списке понравившихся песен, удаляем её
+      if (isAlreadyLiked) {
+        const updatedLikedSongs = likedSongs.filter(
+          (song) => song.id !== currentSong.id
+        );
+        setLikedSongs(updatedLikedSongs);
+      } else {
+        // Создание нового объекта для элемента <li> на основе текущей песни
+        const newSong = {
+          id: currentSong.id,
+          img: currentSong.img,
+          name: currentSong.name,
+          writer: currentSong.writer,
+        };
+
+        // Добавление новой песни в список понравившихся песен
+        setLikedSongs([...likedSongs, newSong]);
+      }
+    }
+
+    const ramBAudioLoversS = document.getElementById("ramBAudioLovers");
+    ramBAudioLoversS.src = setLovers;
+    const ramBAudioLovers = ramBAudioLoversRef.current;
+    // Проверяем, какое изображение в настоящее время отображается
+    const isSetLovers = ramBAudioLovers.src.includes(setLovers);
+    let newLoversImage;
+    // Определяем новое изображение в зависимости от текущей темы
+    if (isSetLovers) {
+      if (currentTheme === "theme1") {
+        newLoversImage = Lovers;
+      } else if (currentTheme === "theme2") {
+        newLoversImage = LoversTheme2;
+      } else if (currentTheme === "theme3") {
+        newLoversImage = LoversTheme3;
+      }
+    } else {
+      // Если текущее изображение не setLovers, то устанавливаем его в setLovers
+      newLoversImage = setLovers;
+    }
+    // Присваиваем новое изображение
+    ramBAudioLovers.src = newLoversImage;
+  };
+
+  const handleLDownloadClick = () => {
+    // Получение текущей песни на основе visionCountHeader
+    const currentSong = playList.find((song) => song.id === visionCountHeader);
+
+    // Проверка, что такая песня найдена
+    if (currentSong) {
+      // Проверяем, содержится ли текущая песня уже в списке понравившихся песен
+      const isAlreadyDownload = DownloadSongs.some(
+        (song) => song.id === currentSong.id
+      );
+
+      // Если текущая песня уже есть в списке понравившихся песен, удаляем её
+      if (isAlreadyDownload) {
+        const updatedDownloadSongs = DownloadSongs.filter(
+          (song) => song.id !== currentSong.id
+        );
+        setDownloadSongs(updatedDownloadSongs);
+      } else {
+        // Создание нового объекта для элемента <li> на основе текущей песни
+        const newSong = {
+          id: currentSong.id,
+          img: currentSong.img,
+          name: currentSong.name,
+          writer: currentSong.writer,
+        };
+
+        // Добавление новой песни в список понравившихся песен
+        setDownloadSongs([...DownloadSongs, newSong]);
+      }
+    }
+
+    const ramBAudioDownloadS = document.getElementById("ramBAudioDownload");
+    ramBAudioDownloadS.src = setDownload;
+    const ramBAudioDownload = ramBAudioDownloadRef.current;
+    // Проверяем, какое изображение в настоящее время отображается
+    const isSetDownload = ramBAudioDownload.src.includes(setDownload);
+    let newDownloadImage;
+    // Определяем новое изображение в зависимости от текущей темы
+    if (isSetDownload) {
+      if (currentTheme === "theme1") {
+        newDownloadImage = Download;
+      } else if (currentTheme === "theme2") {
+        newDownloadImage = DownloadTheme2;
+      } else if (currentTheme === "theme3") {
+        newDownloadImage = DownloadTheme3;
+      }
+    } else {
+      // Если текущее изображение не setLovers, то устанавливаем его в setLovers
+      newDownloadImage = setDownload;
+    }
+    // Присваиваем новое изображение
+    ramBAudioDownload.src = newDownloadImage;
+  };
+
+  const handleLSaveClick = () => {
+    // Получение текущей песни на основе visionCountHeader
+    const currentSong = playList.find((song) => song.id === visionCountHeader);
+
+    // Проверка, что такая песня найдена
+    if (currentSong) {
+      // Проверяем, содержится ли текущая песня уже в списке понравившихся песен
+      const isAlreadySave = SaveSongs.some(
+        (song) => song.id === currentSong.id
+      );
+
+      // Если текущая песня уже есть в списке понравившихся песен, удаляем её
+      if (isAlreadySave) {
+        const updatedSaveSongs = SaveSongs.filter(
+          (song) => song.id !== currentSong.id
+        );
+        setSaveSongs(updatedSaveSongs);
+      } else {
+        // Создание нового объекта для элемента <li> на основе текущей песни
+        const newSong = {
+          id: currentSong.id,
+          img: currentSong.img,
+          name: currentSong.name,
+          writer: currentSong.writer,
+        };
+
+        // Добавление новой песни в список понравившихся песен
+        setSaveSongs([...SaveSongs, newSong]);
+      }
+    }
+
+    const ramBAudioSaveS = document.getElementById("ramBAudioSave");
+    ramBAudioSaveS.src = setSave;
+    const ramBAudioSave = ramBAudioSaveRef.current;
+    // Проверяем, какое изображение в настоящее время отображается
+    const isSetSave = ramBAudioSave.src.includes(setSave);
+    let newSaveImage;
+    // Определяем новое изображение в зависимости от текущей темы
+    if (isSetSave) {
+      if (currentTheme === "theme1") {
+        newSaveImage = Save;
+      } else if (currentTheme === "theme2") {
+        newSaveImage = SaveTheme2;
+      } else if (currentTheme === "theme3") {
+        newSaveImage = SaveTheme3;
+      }
+    } else {
+      // Если текущее изображение не setLovers, то устанавливаем его в setLovers
+      newSaveImage = setSave;
+    }
+    // Присваиваем новое изображение
+    ramBAudioSave.src = newSaveImage;
+  };
 
   return (
     <main className="main">
@@ -415,18 +843,24 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
             <div id="AudioPlayersB" className="ram-b-audio-players">
               <img
                 id="ramBAudioSave"
+                onClick={handleLSaveClick}
+                ref={ramBAudioSaveRef}
                 className="ram-b-audio-players-icons"
                 src={Save}
                 alt=""
               />
               <img
                 id="ramBAudioLovers"
+                onClick={handleLoversClick}
+                ref={ramBAudioLoversRef}
                 className="ram-b-audio-players-icons"
                 src={Lovers}
                 alt=""
               />
               <img
                 id="ramBAudioDownload"
+                onClick={handleLDownloadClick}
+                ref={ramBAudioDownloadRef}
                 className="ram-b-audio-players-icons"
                 src={Download}
                 alt=""
@@ -453,13 +887,20 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
           <div className="folder-bacg"></div>
           <div className="folder-header">
             <img className="folder-icon" src={Opened_Folder} alt="" />
-            <p className="folder-name">Название Папки</p>
-          </div>
-
-          <div className="folder-list">
-            <ul className="folder-list-t">
-              <img className="folder-list-icon" src={Music} alt="" />
-              <li className="folder-list-name">1</li>
+            <p className="folder-name">Сохраненные</p>
+            <ul className="folder-Save-song">
+              {SaveSongs.map((song, index) => (
+                <li
+                  className="folder-Save-song-list"
+                  key={index}
+                  onClick={() => handleSongClickSSS(song.id)}
+                  id={`${song.id}-Save`}
+                >
+                  <img src={song.img} alt={song.name} />
+                  <p>{song.name}</p>
+                  <p>{song.writer}</p>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -468,6 +909,20 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
           <div className="folder-bacg"></div>
           <div className="folder-header">
             <img className="folder-icon" src={Downloads_Folder_Black} alt="" />
+            <ul className="folder-Download-song">
+              {DownloadSongs.map((song, index) => (
+                <li
+                  className="folder-Download-song-list"
+                  key={index}
+                  onClick={() => handleSongClickSSSS(song.id, playList)}
+                  id={`${song.id}-Download`}
+                >
+                  <img src={song.img} alt={song.name} />
+                  <p>{song.name}</p>
+                  <p>{song.writer}</p>
+                </li>
+              ))}
+            </ul>
             <p className="folder-name">Загрузки</p>
           </div>
         </div>
@@ -477,6 +932,20 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
           <div className="folder-header">
             <img className="folder-icon" src={Love_black} alt="" />
             <p className="folder-name">Понравившиеся</p>
+            <ul className="folder-Liked-song">
+              {likedSongs.map((song, index) => (
+                <li
+                  className="folder-Liked-song-list"
+                  key={index}
+                  onClick={() => handleSongClickSSS(song.id)}
+                  id={`${song.id}-Liked`}
+                >
+                  <img src={song.img} alt={song.name} />
+                  <p>{song.name}</p>
+                  <p>{song.writer}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

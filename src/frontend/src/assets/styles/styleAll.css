@@ -87,7 +87,7 @@ h1 {
   display: flex;
   align-items: center;
   background-size: cover;
-  transition: 1s;
+  transition: 0.1s;
 }
 
 .blocks::before {
@@ -1237,4 +1237,195 @@ footer {
   /* left: 5px; */
   border-radius: 5px;
   z-index: -1;
+}
+
+.folder-Liked-song {
+  padding: 10px;
+  position: absolute;
+  left: 40px;
+  width: 85%;
+  height: 560px;
+  top: 68px;
+  /* width: 90%; */
+  /* border: 2px solid black; */
+  overflow: auto;
+  /* background: #888; */
+}
+
+.folder-Liked-song-list {
+  position: relative;
+  /* display: block; */
+  padding: 0px 0px 15px;
+  /* border: aliceblue; */
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 0px 0px 10px 0px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.folder-Liked-song-list p {
+  position: relative;
+  padding: 0px 0px 0px 80px;
+  font-size: 15px;
+  top: 2px;
+  display: inline-flex;
+}
+
+.folder-Liked-song-list img {
+  width: 15%;
+  height: 63px;
+  position: absolute;
+  /* display: block; */
+  /* padding: 0px 0px 0px; */
+  /* top: 15px; */
+  /* left: 5px; */
+  border-radius: 5px;
+  z-index: -1;
+}
+.folder-Download-song {
+  padding: 10px;
+  position: absolute;
+  left: 40px;
+  width: 85%;
+  height: 560px;
+  top: 68px;
+  /* width: 90%; */
+  /* border: 2px solid black; */
+  overflow: auto;
+  /* background: #888; */
+}
+
+.folder-Download-song-list {
+  position: relative;
+  /* display: block; */
+  padding: 0px 0px 15px;
+  /* border: aliceblue; */
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 0px 0px 10px 0px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.folder-Download-song-list p {
+  position: relative;
+  padding: 0px 0px 0px 80px;
+  font-size: 15px;
+  top: 2px;
+  display: inline-flex;
+}
+
+.folder-Download-song-list img {
+  width: 15%;
+  height: 63px;
+  position: absolute;
+  /* display: block; */
+  /* padding: 0px 0px 0px; */
+  /* top: 15px; */
+  /* left: 5px; */
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.folder-Save-song {
+  padding: 10px;
+  position: absolute;
+  left: 40px;
+  width: 85%;
+  height: 540px;
+  top: 83px;
+  /* width: 90%; */
+  /* border: 2px solid black; */
+  overflow: auto;
+}
+
+.folder-Save-song-list {
+  position: relative;
+  /* display: block; */
+  padding: 0px 0px 15px;
+  /* border: aliceblue; */
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 0px 0px 10px 0px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.folder-Save-song-list p {
+  position: relative;
+  padding: 0px 0px 0px 80px;
+  font-size: 15px;
+  top: 2px;
+  display: inline-flex;
+}
+
+.folder-Save-song-list img {
+  width: 15%;
+  height: 63px;
+  position: absolute;
+  /* display: block; */
+  /* padding: 0px 0px 0px; */
+  /* top: 15px; */
+  /* left: 5px; */
+  border-radius: 5px;
+  z-index: -1;
+}
+
+@keyframes changeSrcAnimation {
+  0% {
+    opacity: 30%;
+    width: 70px;
+    height: 70px;
+  }
+  50% {
+    width: 90px;
+    height: 90px;
+  }
+  60% {
+    width: 60px;
+    height: 60px;
+  }
+  70% {
+    width: 90px;
+    height: 90px;
+  }
+  100% {
+    opacity: 100%;
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.changeSrcAnimation {
+  animation: changeSrcAnimation 1s ease;
+}
+
+@keyframes changeSrcAnimationS {
+  0% {
+    opacity: 30%;
+    width: 70px;
+    height: 70px;
+  }
+  50% {
+    width: 80px;
+    height: 80px;
+  }
+  60% {
+    width: 60px;
+    height: 60px;
+  }
+  70% {
+    width: 80px;
+    height: 80px;
+  }
+  100% {
+    opacity: 100%;
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.changeSrcAnimationS {
+  animation: changeSrcAnimationS 1s ease;
 }
