@@ -1,3 +1,237 @@
+@media only screen and (min-width: 2561px) and (max-width: 9999px) {
+  .shil {
+    width: 2560px !important;
+  }
+
+  .icon1,
+  .icon2,
+  .icon3,
+  .icon4,
+  .icon5,
+  .icon6 {
+    padding: 0px 125px !important;
+  }
+
+  .center {
+    left: 30% !important;
+    top: 300px !important;
+  }
+
+  .center.folderPowerOn {
+    left: 30% !important;
+    top: 300px !important;
+  }
+
+  .SelectionMenu__UL {
+    height: 97.8% !important;
+  }
+
+  .selectionMenu {
+    height: 960px !important;
+  }
+
+  .folder {
+    width: 569px !important;
+    height: 960px !important;
+    left: 1610px !important;
+  }
+
+  .folder-bacg {
+    width: 581px !important;
+    height: 960px !important;
+  }
+
+  .folder-history-song {
+    left: 40px !important;
+    width: 85% !important;
+    height: 830px !important;
+    top: 70px !important;
+  }
+}
+
+@media only screen and (min-width: 2220px) and (max-width: 2560px) {
+  .shil {
+    width: 2560px !important;
+  }
+
+  .icon1,
+  .icon2,
+  .icon3,
+  .icon4,
+  .icon5,
+  .icon6 {
+    padding: 0px 125px !important;
+  }
+
+  .center {
+    left: 30% !important;
+    top: 300px !important;
+  }
+
+  .center.folderPowerOn {
+    left: 30% !important;
+    top: 300px !important;
+  }
+
+  .SelectionMenu__UL {
+    height: 97.8% !important;
+  }
+
+  .selectionMenu {
+    height: 960px !important;
+  }
+
+  .folder {
+    width: 569px !important;
+    height: 960px !important;
+    left: 1610px !important;
+  }
+
+  .folder-bacg {
+    width: 581px !important;
+    height: 960px !important;
+  }
+
+  .folder-history-song {
+    left: 40px !important;
+    width: 85% !important;
+    height: 830px !important;
+    top: 70px !important;
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+  html,
+  body {
+    height: 115% !important;
+    width: 115% !important;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  html,
+  body {
+    height: 137% !important;
+    width: 137% !important;
+  }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  html,
+  body {
+    height: 158% !important;
+    width: 158% !important;
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  html,
+  body {
+    height: 210% !important;
+    width: 210% !important;
+  }
+
+  .shil {
+    /* width: 2560px !important; */
+  }
+
+  .icon1,
+  .icon2,
+  .icon3,
+  .icon4,
+  .icon5,
+  .icon6 {
+    /* padding: 0px 125px !important; */
+  }
+
+  .center {
+    /* left: 30% !important; */
+    /* top: 300px !important; */
+  }
+
+  .center.folderPowerOn {
+    /* left: 30% !important; */
+    /* top: 300px !important; */
+  }
+
+  .SelectionMenu__UL {
+    /* height: 97.8% !important; */
+  }
+
+  .selectionMenu {
+    /* height: 960px !important; */
+  }
+
+  .folder {
+    /* width: 569px !important; */
+    /* height: 960px !important; */
+    /* left: 1610px !important; */
+  }
+
+  .folder-bacg {
+    /* width: 581px !important; */
+    /* height: 960px !important; */
+  }
+
+  .folder-history-song {
+    /* left: 40px !important; */
+    /* width: 85% !important; */
+    /* height: 830px !important; */
+    /* top: 70px !important; */
+  }
+}
+@media only screen and (max-width: 375px) and (max-height: 667px) {
+  html,
+  body {
+    height: 210% !important;
+    width: 210% !important;
+  }
+
+  .shil {
+    width: 1480px !important;
+  }
+
+  .icon1,
+  .icon2,
+  .icon3,
+  .icon4,
+  .icon5,
+  .icon6 {
+    padding: 0px 10px !important;
+  }
+
+  .center {
+    left: 17% !important;
+    top: 900px !important;
+  }
+
+  .center.folderPowerOn {
+    left: 10% !important;
+    top: 900px !important;
+  }
+
+  .SelectionMenu__UL {
+    height: 97.8% !important;
+  }
+
+  .selectionMenu {
+    /* height: 960px !important; */
+  }
+
+  .folder {
+    height: 2340px !important;
+    left: 830px !important;
+  }
+
+  .folder-bacg {
+    height: 2340px !important;
+  }
+
+  .folder-history-song {
+    height: 2200px !important;
+  }
+}
+
 .rm-audio-player-provider,
 #rm-audio-player,
 .player-container-menu {
