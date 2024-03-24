@@ -6,11 +6,11 @@ The project was created as part of a training project as well as the study of ne
 
 ## Содержание
 
-- [Технологии | Technologies](#технологии)
-- [Инструменты | Tools](#Инструменты)
-- [Установка | Installation](#установка)
-- [Требования | Requirements](#требования)
-- [Команда | Team](#команда)
+- [Технологии | Technologies](#технологии--technologies)
+- [Инструменты | Tools](#инструменты--tools)
+- [Требования | Requirements](#требования--requirements)
+- [Установка | Installation](#установка--installation)
+- [Команда | Team](#команда--team)
 
 ## Технологии | Technologies
 
@@ -75,6 +75,6 @@ $ npm run dev
 Команда проекта 26-BYT | Team 26-BYT
 
 - [Залужец Ростислав](https://github.com/ZRostislav) — Frontend, Backend;
-- [Чернобель Егор] — Designer, Content Manager;
+- [Чернобель Егор]() — Designer, Content Manager;
 - [Гинда Александр](https://github.com/AlexandrGhinda) — QA;
 - [Соколенко Дмитрий](https://github.com/degasy-is-my-name) — Documentation Manager;
