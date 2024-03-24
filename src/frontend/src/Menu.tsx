@@ -72,6 +72,7 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
   const ramBAudioLoversRef = useRef<HTMLImageElement>(null);
   const ramBAudioDownloadRef = useRef<HTMLImageElement>(null);
   const ramBAudioSaveRef = useRef<HTMLImageElement>(null);
+  const ramWAudioPlayRef = useRef<HTMLImageElement>(null);
   const [likedSongs, setLikedSongs] = useState<PlaylistItem[]>([]);
   const [DownloadSongs, setDownloadSongs] = useState<PlaylistItem[]>([]);
   const [SaveSongs, setSaveSongs] = useState<PlaylistItem[]>([]);
@@ -103,60 +104,28 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
     playList: true,
   });
 
+  const [isPlaying, setIsPlaying] = useState(false);
+
   useEffect(() => {
-    const handlePlayButtonClick = () => {
-      const ramWAudioPlay = document.getElementById(
-        "ramWAudioPlay"
-      ) as HTMLImageElement;
-      if (ramWAudioPlay) {
-        // Проверка текущей темы
-        if (currentTheme === "theme2") {
-          // Установка src в соответствии с темой 2
-          if (ramWAudioPlay.src.includes(PlayTheme2)) {
-            ramWAudioPlay.src = StopTheme2;
-          } else if (ramWAudioPlay.src.includes(StopTheme3)) {
-            ramWAudioPlay.src = PlayTheme2;
-          } else {
-            ramWAudioPlay.src = PlayTheme2;
-          }
-        } else if (currentTheme === "theme3") {
-          // Установка src в соответствии с темой 3
-          if (ramWAudioPlay.src.includes(PlayTheme3)) {
-            ramWAudioPlay.src = StopTheme3;
-          } else if (ramWAudioPlay.src.includes(StopTheme2)) {
-            ramWAudioPlay.src = PlayTheme3;
-          } else {
-            ramWAudioPlay.src = PlayTheme3;
-          }
-        } else if (currentTheme === "theme1") {
-          // Установка src в соответствии с темой 3
-          if (ramWAudioPlay.src.includes(Play)) {
-            ramWAudioPlay.src = Stop;
-          } else {
-            ramWAudioPlay.src = Play;
-          }
-        } else {
-          // Установка src по умолчанию (для темы 1)
-          if (ramWAudioPlay.src.includes(Play)) {
-            ramWAudioPlay.src = Stop;
-          } else {
-            ramWAudioPlay.src = Play;
-          }
-        }
-      }
-    };
+    // Определяем src для изображения кнопки в зависимости от текущей темы и состояния isPlaying
+    const playButtonSrc = isPlaying
+      ? currentTheme === "theme1"
+        ? Stop
+        : currentTheme === "theme2"
+        ? StopTheme2
+        : StopTheme3
+      : currentTheme === "theme1"
+      ? Play
+      : currentTheme === "theme2"
+      ? PlayTheme2
+      : PlayTheme3;
 
-    const playButton = document.querySelector(".play-button");
-    if (playButton) {
-      playButton.addEventListener("click", handlePlayButtonClick);
+    // Обновляем src изображения кнопки
+    const ramWAudioPlay = document.getElementById("ramWAudioPlay");
+    if (ramWAudioPlay) {
+      ramWAudioPlay.src = playButtonSrc;
     }
-
-    return () => {
-      if (playButton) {
-        playButton.removeEventListener("click", handlePlayButtonClick);
-      }
-    };
-  }, [currentTheme]);
+  }, [currentTheme, isPlaying]);
 
   const Themes3 = () => {
     const themi3 = document.querySelectorAll(
@@ -164,14 +133,10 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
     );
 
     const ramWAudioW = document.getElementById("ramWAudioW");
-    const ramWAudioPlay = document.getElementById("ramWAudioPlay");
     const ramAudioP = document.getElementById("ramWAudioP");
 
     if (ramWAudioW) {
       ramWAudioW.src = wTheme3;
-    }
-    if (ramWAudioPlay) {
-      ramWAudioPlay.src = PlayTheme3;
     }
     if (ramAudioP) {
       ramAudioP.src = pTheme3;
@@ -191,15 +156,12 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
     );
 
     const ramWAudioW = document.getElementById("ramWAudioW");
-    const ramWAudioPlay = document.getElementById("ramWAudioPlay");
     const ramAudioP = document.getElementById("ramWAudioP");
 
     if (ramWAudioW) {
       ramWAudioW.src = wTheme2;
     }
-    if (ramWAudioPlay) {
-      ramWAudioPlay.src = PlayTheme2;
-    }
+
     if (ramAudioP) {
       ramAudioP.src = pTheme2;
     }
@@ -218,14 +180,10 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
     );
 
     const ramWAudioW = document.getElementById("ramWAudioW");
-    const ramWAudioPlay = document.getElementById("ramWAudioPlay");
     const ramAudioP = document.getElementById("ramWAudioP");
 
     if (ramWAudioW) {
       ramWAudioW.src = w;
-    }
-    if (ramWAudioPlay) {
-      ramWAudioPlay.src = Play;
     }
     if (ramAudioP) {
       ramAudioP.src = p;
@@ -293,7 +251,10 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
   const playButton = () => {
     const playButton = document.getElementById("playB");
     simulateClick(playButton);
+
+    setIsPlaying(!isPlaying);
   };
+
   const ramWAudioWS = () => {
     const ramWP = document.getElementById("ramWP");
     simulateClick(ramWP);
@@ -813,9 +774,10 @@ function Menu({ visionCountHeader, setVisionCountHeader }: any) {
               />
               <img
                 id="ramWAudioPlay"
+                ref={ramWAudioPlayRef}
                 className="ram-w-audio-players-icons"
                 onClick={() => playButton()}
-                src={Play}
+                src={isPlaying ? Stop : Play} // Изображение кнопки устанавливается из useEffect
                 alt=""
               />
               <img
