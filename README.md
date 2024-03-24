@@ -75,6 +75,6 @@ $ npm run dev
 Команда проекта 26-BYT | Team 26-BYT
 
 - [Залужец Ростислав](https://github.com/ZRostislav) — Frontend, Backend;
-- [Чернобель Егор] — Designer, Content Manager;
+- [Чернобель Егор]() — Designer, Content Manager;
 - [Гинда Александр](https://github.com/AlexandrGhinda) — QA;
 - [Соколенко Дмитрий](https://github.com/degasy-is-my-name) — Documentation Manager;
