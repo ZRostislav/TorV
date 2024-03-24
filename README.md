@@ -34,18 +34,6 @@ To install and run the project, you need [NodeJS](https://nodejs.org/) v20+.
 
 ### Установка | Installation
 
-Чтобы запустить проект нужно перейти в папку:
-
-```sh
-src/frontend
-```
-
-To start the project, go to the folder:
-
-```sh
-src/frontend
-```
-
 Установите npm-пакет с помощью команды:
 
 ```sh

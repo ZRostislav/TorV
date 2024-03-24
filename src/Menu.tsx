@@ -45,7 +45,7 @@ import SaveTheme3 from "./assets/img/testing/saveTheme3.png";
 import LoversTheme3 from "./assets/img/testing/loversTheme3.png";
 import DownloadTheme3 from "./assets/img/testing/downloadTheme3.png";
 
-import back1 from "./assets/img/сам_фон.jpg";
+import back1 from "./assets/img/back1.jpg";
 import back2 from "./assets/img/testing/back2.jpg";
 import back3 from "./assets/img/testing/back3.jpg";
 
