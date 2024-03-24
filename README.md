@@ -6,11 +6,11 @@ The project was created as part of a training project as well as the study of ne
 
 ## Содержание
 
-- [Технологии | Technologies](#технологии)
-- [Инструменты | Tools](#Инструменты)
-- [Установка | Installation](#установка)
-- [Требования | Requirements](#требования)
-- [Команда | Team](#команда)
+- [Технологии | Technologies](#технологии--technologies)
+- [Инструменты | Tools](#инструменты--tools)
+- [Требования | Requirements](#требования--requirements)
+- [Установка | Installation](#установка--installation)
+- [Команда | Team](#команда--team)
 
 ## Технологии | Technologies
 
