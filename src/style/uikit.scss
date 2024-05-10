@@ -1,0 +1,34 @@
+.white-btn {
+  padding: 12px 20px 12px 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: $darkColor;
+  border-radius: 8px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.dark-btn {
+  padding: 16px 24px 16px 24px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: $darkColor;
+  border-radius: 12px;
+  border-style: none;
+  cursor: pointer;
+  background-color: $grayColor;
+}
+
+.dark__small-btn {
+  padding: 12px 20px 12px 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: $darkColor;
+  border-radius: 10px;
+  border-style: none;
+  cursor: pointer;
+  background-color: $grayColor;
+}
