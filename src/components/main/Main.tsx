@@ -27,7 +27,7 @@ interface PlaylistItem {
   id: number;
 }
 
-let playList = [
+const playList = [
   {
     name: "Author music - 1",
     writer: "music - 1",
@@ -65,50 +65,50 @@ let playList = [
   },
 ];
 
-const originalPlayList = [
-  {
-    name: "Author music - 1",
-    writer: "music - 1",
-    img: "https://cdn.pixabay.com/photo/2021/11/04/05/33/dome-6767422_960_720.jpg",
-    src: "https://cdn.pixabay.com/audio/2022/08/23/audio_d16737dc28.mp3",
-    id: 1,
-  },
-  {
-    name: "Author music - 2",
-    writer: "music - 2",
-    img: "https://cdn.pixabay.com/photo/2021/09/06/16/45/nature-6602056__340.jpg",
-    src: "https://cdn.pixabay.com/audio/2022/08/04/audio_2dde668d05.mp3",
-    id: 2,
-  },
-  {
-    name: "Author music - 3",
-    writer: "music - 3",
-    img: "https://cdn.pixabay.com/photo/2022/08/29/08/47/sky-7418364__340.jpg",
-    src: "https://cdn.pixabay.com/audio/2022/08/03/audio_54ca0ffa52.mp3",
-    id: 3,
-  },
-  {
-    name: "Author music - 4",
-    writer: "music - 4",
-    img: "https://cdn.pixabay.com/photo/2015/09/22/01/30/lights-951000__340.jpg",
-    src: "https://cdn.pixabay.com/audio/2022/07/25/audio_3266b47d61.mp3",
-    id: 4,
-  },
-  {
-    name: "Author music - 5",
-    writer: "music - 5",
-    img: "https://cdn.pixabay.com/photo/2022/08/28/18/03/dog-7417233__340.jpg",
-    src: "https://cdn.pixabay.com/audio/2022/08/02/audio_884fe92c21.mp3",
-    id: 5,
-  },
-  {
-    name: "TEST NAME",
-    writer: "AFTOR TEST",
-    img: "https://cdn.pixabay.com/photo/2017/03/27/15/16/man-2179326_960_720.jpg",
-    src: "./src/test.mp3",
-    id: 6,
-  },
-];
+// const originalPlayList = [
+//   {
+//     name: "Author music - 1",
+//     writer: "music - 1",
+//     img: "https://cdn.pixabay.com/photo/2021/11/04/05/33/dome-6767422_960_720.jpg",
+//     src: "https://cdn.pixabay.com/audio/2022/08/23/audio_d16737dc28.mp3",
+//     id: 1,
+//   },
+//   {
+//     name: "Author music - 2",
+//     writer: "music - 2",
+//     img: "https://cdn.pixabay.com/photo/2021/09/06/16/45/nature-6602056__340.jpg",
+//     src: "https://cdn.pixabay.com/audio/2022/08/04/audio_2dde668d05.mp3",
+//     id: 2,
+//   },
+//   {
+//     name: "Author music - 3",
+//     writer: "music - 3",
+//     img: "https://cdn.pixabay.com/photo/2022/08/29/08/47/sky-7418364__340.jpg",
+//     src: "https://cdn.pixabay.com/audio/2022/08/03/audio_54ca0ffa52.mp3",
+//     id: 3,
+//   },
+//   {
+//     name: "Author music - 4",
+//     writer: "music - 4",
+//     img: "https://cdn.pixabay.com/photo/2015/09/22/01/30/lights-951000__340.jpg",
+//     src: "https://cdn.pixabay.com/audio/2022/07/25/audio_3266b47d61.mp3",
+//     id: 4,
+//   },
+//   {
+//     name: "Author music - 5",
+//     writer: "music - 5",
+//     img: "https://cdn.pixabay.com/photo/2022/08/28/18/03/dog-7417233__340.jpg",
+//     src: "https://cdn.pixabay.com/audio/2022/08/02/audio_884fe92c21.mp3",
+//     id: 5,
+//   },
+//   {
+//     name: "TEST NAME",
+//     writer: "AFTOR TEST",
+//     img: "https://cdn.pixabay.com/photo/2017/03/27/15/16/man-2179326_960_720.jpg",
+//     src: "./src/test.mp3",
+//     id: 6,
+//   },
+// ];
 
 function Main() {
   const [progressType] = useState<ProgressUI>("bar");
@@ -352,13 +352,13 @@ function Main() {
     const baseTextElement = document.querySelector(".base-text");
     const saveTextElement = document.querySelector(".save-text");
 
-    if (!likeElement.classList.contains("active")) {
-      playList = playList.filter((item) => {
-        return playListLiked.some((likedItem) => likedItem.id === item.id);
-      });
-    } else {
-      playList = originalPlayList;
-    }
+    // if (!likeElement.classList.contains("active")) {
+    //   playList = playList.filter((item) => {
+    //     return playListLiked.some((likedItem) => likedItem.id === item.id);
+    //   });
+    // } else {
+    //   playList = originalPlayList;
+    // }
 
     likeElement?.classList.toggle("active");
     if (likeTextElement) {
@@ -441,13 +441,13 @@ function Main() {
       const baseTextElement = document.querySelector(".base-text");
       const saveTextElement = document.querySelector(".save-text");
 
-      if (!baseElement.classList.contains("active")) {
-        playList = playList.filter((item) => {
-          return playListBased.some((basedItem) => basedItem.id === item.id);
-        });
-      } else {
-        playList = originalPlayList;
-      }
+      // if (!baseElement.classList.contains("active")) {
+      //   playList = playList.filter((item) => {
+      //     return playListBased.some((basedItem) => basedItem.id === item.id);
+      //   });
+      // } else {
+      //   playList = originalPlayList;
+      // }
 
       baseElement?.classList.toggle("active");
       if (baseTextElement) {
