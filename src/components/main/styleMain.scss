@@ -1,3 +1,170 @@
+@media screen and (max-width: 1280px) and (min-width: 1025px) {
+  .audioPlayer {
+    max-height: 730px !important;
+  }
+  .audioPlayer__content {
+    height: 250px !important;
+  }
+}
+
+@media screen and (max-width: 1025px) and (min-width: 572px) {
+  .audioPlayer {
+    max-height: 850px !important;
+  }
+  .audioPlayer__content {
+    height: 350px !important;
+    width: 460px !important;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: width) {
+  .audioPlayer__content {
+    height: 105px !important;
+    width: 480px !important;
+  }
+}
+
+@media screen and (max-width: 572px) and (min-width: 384px) {
+  .audioPlayer {
+    max-height: 850px !important;
+  }
+  .audioPlayer__interface {
+    display: flex !important;
+    padding: 15px 0 20px 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    gap: 10px !important;
+  }
+  .audioPlayer__interface-playback {
+    height: 120px !important;
+    width: 120px !important;
+    max-height: 120px !important;
+    max-width: 120px !important;
+  }
+  .audioPlayer__interface-back,
+  .audioPlayer__interface-further {
+    height: 70px !important;
+    width: 70px !important;
+    max-height: 70px !important;
+    max-width: 70px !important;
+  }
+  .audioPlayer__interface-further {
+    padding: 0 0 0 10px !important;
+  }
+  .audioPlayer__content {
+    height: 280px !important;
+    width: 350px !important;
+  }
+
+  .audioPlayer__content-container {
+    width: 300px !important;
+    height: 60px !important;
+  }
+
+  .audioPlayer__folders {
+    padding: 0 10px 20px 10px !important;
+  }
+  .like-text,
+  .base-text,
+  .save-text {
+    font-size: 30px !important;
+  }
+  .container__img {
+    margin: 0 0 0 5px !important;
+    width: 53px !important;
+    height: 53px !important;
+  }
+  .container__text {
+    font-size: 25px !important;
+  }
+  .container__menu {
+    width: 50px !important;
+    height: 50px !important;
+    margin: 0 4px 0 0 !important;
+  }
+}
+
+@media screen and (max-width: 384px) and (min-width: 0px) {
+  .audioPlayer {
+    max-height: 850px !important;
+  }
+  .audioPlayer__interface {
+    display: flex !important;
+    padding: 15px 0 20px 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    gap: 10px !important;
+  }
+  .audioPlayer__interface-playback {
+    height: 100px !important;
+    width: 100px !important;
+    max-height: 100px !important;
+    max-width: 100px !important;
+    padding: 0 0 0 15px !important;
+  }
+  .true {
+    padding: 0 13px 0 0 !important;
+  }
+  #InterfacePlaybackContent {
+    max-width: 75% !important;
+    max-height: 75% !important;
+  }
+  .audioPlayer__interface-back,
+  .audioPlayer__interface-further {
+    height: 60px !important;
+    width: 60px !important;
+    max-height: 60px !important;
+    max-width: 60px !important;
+  }
+  .audioPlayer__interface-further {
+    padding: 0 0 0 10px !important;
+  }
+  .audioPlayer__content {
+    height: 260px !important;
+    width: 275px !important;
+  }
+
+  .audioPlayer__content-container {
+    width: 220px !important;
+    height: 60px !important;
+  }
+
+  .audioPlayer__management-text,
+  .audioPlayer__management-timer {
+    font-size: 25px !important;
+  }
+
+  .audioPlayer__folders {
+    padding: 0 10px 20px 10px !important;
+  }
+  .like-text,
+  .base-text,
+  .save-text {
+    font-size: 15px !important;
+  }
+  .audioPlayer__folders-like,
+  .audioPlayer__folders-base,
+  .audioPlayer__folders-save {
+    height: 60px !important;
+  }
+  .container__img {
+    margin: 0 0 0 5px !important;
+    width: 43px !important;
+    height: 43px !important;
+  }
+  .container__text {
+    font-size: 17px !important;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5) !important;
+  }
+  .container__menu {
+    width: 40px !important;
+    height: 40px !important;
+    margin: 0 4px 0 0 !important;
+  }
+}
+
 .audioPlayer {
   /* margin: 45px 27px; */
   background-color: rgba(255, 255, 255, 0.4);
