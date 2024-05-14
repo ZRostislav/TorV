@@ -128,10 +128,6 @@ function Main() {
   const [playListSaved, setPlayListSaved] = useState<PlaylistItem[]>([]);
   let isSoundButtonActive = false;
 
-  useEffect(() => {
-    SapmleOff();
-  });
-
   // Симулятор Клика
   function simulateClick(element: any) {
     const event = new MouseEvent("click", {
