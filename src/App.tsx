@@ -8,6 +8,30 @@ function App() {
     if (sample) {
       sample.className = ""; // Clear all classes
       sample.className = "audioPlayer__sample";
+
+      const audioPlayer = document.getElementById("audioPlayer") as HTMLElement;
+      if (audioPlayer) {
+        audioPlayer?.classList.remove("blur__2px");
+      }
+
+      const classNames = [
+        "audioPlayer__folders-like",
+        "audioPlayer__folders-base",
+        "audioPlayer__folders-save",
+        "audioPlayer__management-soundFunction",
+        "audioPlayer__interface-back",
+        "audioPlayer__interface-playback",
+        "audioPlayer__interface-further",
+        "management__bar",
+      ];
+
+      const elements = classNames.flatMap((className) => {
+        return Array.from(document.querySelectorAll(`.${className}`));
+      });
+
+      elements.forEach((element) => {
+        element.classList.remove("off");
+      });
       console.log("SampleOff");
     }
   }
