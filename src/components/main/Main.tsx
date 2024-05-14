@@ -1164,6 +1164,13 @@ function Main() {
     };
   }, []);
 
+  useEffect(() => {
+    const sample = document.getElementById("Sample");
+    if (sample) {
+      sample.classList.add("audioPlayer__sample");
+    }
+  }, []);
+
   return (
     <>
       <AudioPlayer

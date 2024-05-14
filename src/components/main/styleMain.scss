@@ -25,6 +25,12 @@
 }
 
 @media screen and (max-width: 572px) and (min-width: 384px) {
+  .audioPlayer__sample-exit {
+    bottom: 143px !important;
+  }
+  .audioPlayer__sample {
+    width: 390px !important;
+  }
   .audioPlayer {
     max-height: 850px !important;
   }
@@ -86,6 +92,19 @@
 }
 
 @media screen and (max-width: 384px) and (min-width: 0px) {
+  .content__like,
+  .content__base,
+  .content__save {
+    height: 80px !important;
+    width: 80px !important;
+  }
+  .audioPlayer__sample-exit {
+    bottom: 143px !important;
+  }
+  .audioPlayer__sample {
+    width: 310px !important;
+    margin: -146px 0px 0px -5px !important;
+  }
   .audioPlayer {
     max-height: 850px !important;
   }
