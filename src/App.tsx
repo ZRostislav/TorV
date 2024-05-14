@@ -3,15 +3,17 @@ import Main from "./components/main/Main";
 import { useEffect, useState } from "react";
 
 function App() {
-  function SapmleOff() {
-    const sample = document.getElementById("Sample");
+  function SampleOff() {
+    const sample = document.getElementById("Sample") as HTMLElement;
     if (sample) {
-      sample.classList.add("audioPlayer__sample");
-      console.log("SapmleOff");
+      sample.className = ""; // Clear all classes
+      sample.className = "audioPlayer__sample";
+      console.log("SampleOff");
     }
   }
+
   useEffect(() => {
-    SapmleOff();
+    SampleOff();
   });
 
   const [backgroundImg, setBackgroundImg] = useState<string>("");

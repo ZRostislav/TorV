@@ -1164,17 +1164,6 @@ function Main() {
     };
   }, []);
 
-  function SapmleOff() {
-    const sample = document.getElementById("Sample");
-    if (sample) {
-      sample.classList.add("audioPlayer__sample");
-      console.log("SapmleOff");
-    }
-  }
-  useEffect(() => {
-    SapmleOff();
-  });
-
   return (
     <>
       <AudioPlayer
