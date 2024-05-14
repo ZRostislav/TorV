@@ -1164,12 +1164,14 @@ function Main() {
     };
   }, []);
 
-  useEffect(() => {
+  function SapmleOff() {
     const sample = document.getElementById("Sample");
     if (sample) {
       sample.classList.add("audioPlayer__sample");
+      console.log("SapmleOff");
     }
-  }, []);
+  }
+  SapmleOff();
 
   return (
     <>
